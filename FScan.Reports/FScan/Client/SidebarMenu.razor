@@ -1,0 +1,295 @@
+﻿
+
+<div class="nk-sidebar nk-sidebar-fixed is-light" style="display: @(isSidebarOpen ? "block" : "none");">
+    <div class="nk-sidebar-element nk-sidebar-head" style="padding: 14px;10px">
+        <div class="nk-sidebar-brand">
+            <a href="/" class="logo-link nk-sidebar-logo">
+                <img class="logo-dark logo-img" src="/images/BOC_banner_new.png" srcset="images/boc_logo_affiliate.jpg 2x" alt="logo-dark" />
+            </a>
+        </div>
+
+    </div>
+    <div class="nk-sidebar-element nk-sidebar-body">
+        <div class="nk-sidebar-content">
+            <div class="nk-sidebar-menu" data-simplebar>
+                <ul class="nk-menu">
+
+                    <li class="nk-menu-heading">
+                        <h6 class="overline-title text-primary-alt">Back Office Administration</h6>
+                    </li>
+
+                    <li class="nk-menu-item has-sub">
+                        <a href="javascript:void(0);" class="nk-menu-link nk-menu-toggle" @onclick="ToggleBankUserMaintenanceMenu">
+                            <span class="nk-menu-icon"><em class="icon ni ni-account-setting"></em></span>
+                            <span class="nk-menu-text">Bank User Maintenance</span>
+                        </a>
+                        <ul class="nk-menu-sub" style="display: @(bankUserMaintenanceMenuDisplay ? "block" : "none")">
+                            <li class="nk-menu-item">
+                                <a href="Corporations" class="nk-menu-link"><span class="nk-menu-text">Corporation</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="Groups" class="nk-menu-link"><span class="nk-menu-text">User Group</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="Users" class="nk-menu-link"><span class="nk-menu-text">Users</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="ATCs" class="nk-menu-link"><span class="nk-menu-text">Atc</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nk-menu-item has-sub">
+                        <a href="javascript:void(0);" class="nk-menu-link nk-menu-toggle" @onclick="ToggleUserMaintenanceMenu">
+                            <span class="nk-menu-icon"><em class="icon ni ni-users"></em></span>
+                            <span class="nk-menu-text">User Security Maintenance</span>
+                        </a>
+
+                        <ul class="nk-menu-sub" style="display: @(userMaintenanceMenuDisplay ? "block" : "none")">
+                            <li class="nk-menu-item">
+                                <a href="locked-users" class="nk-menu-link"><span class="nk-menu-text">Unlock User</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="ResetPassword" class="nk-menu-link"><span class="nk-menu-text">Reset Password</span></a>
+                            </li>
+
+                            <li class="nk-menu-item">
+                                <a href="ChangePassword" class="nk-menu-link"><span class="nk-menu-text">Change Password</span></a>
+                            </li>
+
+
+                        </ul>
+                    </li>
+
+                    <li class="nk-menu-item has-sub">
+                        <a href="javascript:void(0);" class="nk-menu-link nk-menu-toggle" @onclick="ToggleBusinessMaintenanceMenu">
+                            <span class="nk-menu-icon"><em class="icon ni ni-user-list-fill"></em></span>
+                            <span class="nk-menu-text">Business Rules Management</span>
+                        </a>
+                        <ul class="nk-menu-sub" style="display: @(businessMaintenanceMenuDisplay ? "block" : "none")">
+                            <li class="nk-menu-item">
+                                <a href="BranchMappers" class="nk-menu-link"><span class="nk-menu-text">Releasing Branch Mapper</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="PrintingReleasingMapper" class="nk-menu-link"><span class="nk-menu-text">Printing & Releasing Mapper</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="Releasing" class="nk-menu-link"><span class="nk-menu-text">Branch Maintenance</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="Vendor" class="nk-menu-link"><span class="nk-menu-text">Vendor</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="AuditLogs" class="nk-menu-link"><span class="nk-menu-text">Audit Logs</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="EWTClient" class="nk-menu-link"><span class="nk-menu-text">EWT - All(Client)</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="EWTBank" class="nk-menu-link"><span class="nk-menu-text">EWT - View/Regenerate(Bank)</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="Signatories" class="nk-menu-link"><span class="nk-menu-text">EWT - Signatories</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="StorageRetention" class="nk-menu-link"><span class="nk-menu-text">EWT - Storage Retention Period</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="ParameterSetup" class="nk-menu-link"><span class="nk-menu-text">Maintain Parameter Setup</span></a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+
+                    <li class="nk-menu-heading">
+                        <h6 class="overline-title text-primary-alt">Converter</h6>
+                    </li>
+
+                    <li class="nk-menu-item has-sub">
+                        <a href="javascript:void(0);" class="nk-menu-link nk-menu-toggle" @onclick="ToggleSAPTOCIBMenu">
+                            <span class="nk-menu-icon"><em class="icon ni ni-notes-alt"></em></span>
+                            <span class="nk-menu-text">SAP to CIB</span>
+                        </a>
+                        <ul class="nk-menu-sub" style="display: @(SAPTOCIBMenuDisplay ? "block" : "none")">
+                            <li class="nk-menu-item">
+                                <a href="NothernCementSAPtoCIB" class="nk-menu-link"><span class="nk-menu-text">Northen Cement Corporation</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="ConverterEagleCement" class="nk-menu-link"><span class="nk-menu-text">Eagle Cement</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="ConverterSanMiguelFoodGroup" class="nk-menu-link"><span class="nk-menu-text">San Miguel Food Group</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="AsianHospitalSAPtoCIB" class="nk-menu-link"><span class="nk-menu-text">Asian Hospital</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="SanMiguelIntegratedLogistics" class="nk-menu-link"><span class="nk-menu-text">San Miguel Integrated Logistics Services</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="ConverterSanMiguelBrewery" class="nk-menu-link"><span class="nk-menu-text">San Miguel Brewery Inc.</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="MatesSAPtoCIB/San Miguel Aerocity Inc." class="nk-menu-link"><span class="nk-menu-text">San Miguel Aerocity Inc.</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="ConverterArmstrong/Solid North" class="nk-menu-link"><span class="nk-menu-text">Solid North Mineral Corp.</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="ConverterArmstrong/Armstrong" class="nk-menu-link"><span class="nk-menu-text">Armstrong Fly-Ash and Logistics Company Inc.</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="ConverterStaClara" class="nk-menu-link"><span class="nk-menu-text">Sta.Clara International Corporation</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="SRMISAPtoCIB/SMC Repairs and Maintenance Inc." class="nk-menu-link"><span class="nk-menu-text">SMC Repairs and Maintenance Inc.</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="SRMISAPtoCIB/SMC Integrated Farm Specialist Inc." class="nk-menu-link"><span class="nk-menu-text">SMC Integrated Farm Specialist Inc.</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="MatesSAPtoCIB/Manila Toll Expressway System Inc." class="nk-menu-link"><span class="nk-menu-text">Manila Toll Expressway System Inc.</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="MatesSAPtoCIB/Star Tollway Corporation" class="nk-menu-link"><span class="nk-menu-text">Star Tollway Corporation</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="MatesSAPtoCIB/Skyway O&M Corporation" class="nk-menu-link"><span class="nk-menu-text">Skyway O&M Corporation</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="MatesSAPtoCIB/San Miguel Holdings Corp" class="nk-menu-link"><span class="nk-menu-text">San Miguel Holdings Corp</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="MatesSAPtoCIB/SMC SLEX Inc." class="nk-menu-link"><span class="nk-menu-text">SMC SLEX Inc.</span></a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nk-menu-item has-sub">
+                        <a href="javascript:void(0);" class="nk-menu-link nk-menu-toggle" @onclick="ToggleCIBTOSAPMenu">
+                            <span class="nk-menu-icon"><em class="icon ni ni-reports"></em></span>
+                            <span class="nk-menu-text">CIB to SAP</span>
+                        </a>
+                        <ul class="nk-menu-sub" style="display: @(CIBTOSAPMenuDisplay ? "block" : "none")">
+
+                            <li class="nk-menu-item">
+                                <a href="CIBtoSAP_Printed" class="nk-menu-link"><span class="nk-menu-text">Northern Cement Corporation Printed</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="CIBtoSAP_Released" class="nk-menu-link"><span class="nk-menu-text">Northern Cement Corporation Released</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="SMILSI_CIBtoSAP_Printed" class="nk-menu-link"><span class="nk-menu-text">SMILSI Printed</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="SMILSI_CIBtoSAP_Released" class="nk-menu-link"><span class="nk-menu-text">SMILSI Released</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="SMBI_CIBtoSAP_Released" class="nk-menu-link"><span class="nk-menu-text">SMBI Released</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="SMAI_CIBtoSAP_Printed" class="nk-menu-link"><span class="nk-menu-text">SMAI Printed</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="SMAI_CIBtoSAP_Released" class="nk-menu-link"><span class="nk-menu-text">SMAI Released</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="SRMI_CIBtoSAP_Printed/SMC Repairs and Maintenance Inc. - Printed" class="nk-menu-link"><span class="nk-menu-text">SMC Repairs and Maintenance Inc - Printed</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="SRMI_CIBtoSAP_Released/SMC Repairs and Maintenance Inc. - Released" class="nk-menu-link"><span class="nk-menu-text">SMC Repairs and Maintenance Inc - Released</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="SRMI_CIBtoSAP_Printed/SMC Integrated Farm Specialist Inc. - Printed" class="nk-menu-link"><span class="nk-menu-text">SMC Integrated Farm Specialist Inc - Printed</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="SRMI_CIBtoSAP_Released/SMC Integrated Farm Specialist Inc. - Released" class="nk-menu-link"><span class="nk-menu-text">SMC Integrated Farm Specialist Inc - Released</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="SRMI_CIBtoSAP_Printed/Manila Toll Expressway Systems, Inc. - Printed" class="nk-menu-link"><span class="nk-menu-text">Manila Toll Expressway Systems, Inc - Printed</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="SRMI_CIBtoSAP_Released/Manila Toll Expressway Systems, Inc. - Released" class="nk-menu-link"><span class="nk-menu-text">Manila Toll Expressway Systems, Inc - Released</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="SRMI_CIBtoSAP_Printed/Star Tollway Corporation - Printed" class="nk-menu-link"><span class="nk-menu-text">Star Tollway Corporation - Printed</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="SRMI_CIBtoSAP_Released/Star Tollway Corporation - Released" class="nk-menu-link"><span class="nk-menu-text">Star Tollway Corporation - Released</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="SRMI_CIBtoSAP_Printed/Skyway O&M Corporation - Printed" class="nk-menu-link"><span class="nk-menu-text">Skyway O&M Corporation - Printed</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="SRMI_CIBtoSAP_Released/Skyway O&M Corporation - Released" class="nk-menu-link"><span class="nk-menu-text">Skyway O&M Corporation - Released</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="SRMI_CIBtoSAP_Printed/San Miguel Holdings Corporation - Printed" class="nk-menu-link"><span class="nk-menu-text">San Miguel Holdings Corporation - Printed</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="SRMI_CIBtoSAP_Released/San Miguel Holdings Corporation - Released" class="nk-menu-link"><span class="nk-menu-text">San Miguel Holdings Corporation - Released</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="SRMI_CIBtoSAP_Printed/SMC SLEX Inc - Printed" class="nk-menu-link"><span class="nk-menu-text">SMC SLEX Inc - Printed</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="SRMI_CIBtoSAP_Released/SMC SLEX Inc - Released" class="nk-menu-link"><span class="nk-menu-text">SMC SLEX Inc - Released</span></a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+@code {
+    private string givenName = string.Empty;
+    private string surname = string.Empty;
+    private string email = string.Empty;
+
+    private bool isSidebarOpen = true;
+    private bool bankUserMaintenanceMenuDisplay = false;
+    private bool userMaintenanceMenuDisplay = false;
+    private bool businessMaintenanceMenuDisplay = false;
+    private bool SAPTOCIBMenuDisplay = false;
+    private bool CIBTOSAPMenuDisplay = false;
+    private void ToggleSidebar()
+    {
+        isSidebarOpen = !isSidebarOpen;
+    }
+
+    private void ToggleBankUserMaintenanceMenu()
+    {
+        bankUserMaintenanceMenuDisplay = !bankUserMaintenanceMenuDisplay;
+    }
+
+    private void ToggleUserMaintenanceMenu()
+    {
+        userMaintenanceMenuDisplay = !userMaintenanceMenuDisplay;
+    }
+
+    private void ToggleBusinessMaintenanceMenu()
+    {
+        businessMaintenanceMenuDisplay = !businessMaintenanceMenuDisplay;
+    }
+
+    private void ToggleSAPTOCIBMenu()
+    {
+        SAPTOCIBMenuDisplay = !SAPTOCIBMenuDisplay;
+    }
+
+    private void ToggleCIBTOSAPMenu()
+    {
+        CIBTOSAPMenuDisplay = !CIBTOSAPMenuDisplay;
+    }
+
+
+
+}
+

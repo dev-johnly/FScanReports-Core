@@ -1,0 +1,12 @@
+C:\Users\jcoroy\source\repos\FScan.Reports\Domain\bin\Debug\net8.0\FScan.Reports.Domain.deps.json
+C:\Users\jcoroy\source\repos\FScan.Reports\Domain\bin\Debug\net8.0\FScan.Reports.Domain.dll
+C:\Users\jcoroy\source\repos\FScan.Reports\Domain\bin\Debug\net8.0\FScan.Reports.Domain.pdb
+C:\Users\jcoroy\source\repos\FScan.Reports\Domain\obj\Debug\net8.0\FScan.Reports.Domain.csproj.AssemblyReference.cache
+C:\Users\jcoroy\source\repos\FScan.Reports\Domain\obj\Debug\net8.0\FScan.Reports.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jcoroy\source\repos\FScan.Reports\Domain\obj\Debug\net8.0\FScan.Reports.Domain.AssemblyInfoInputs.cache
+C:\Users\jcoroy\source\repos\FScan.Reports\Domain\obj\Debug\net8.0\FScan.Reports.Domain.AssemblyInfo.cs
+C:\Users\jcoroy\source\repos\FScan.Reports\Domain\obj\Debug\net8.0\FScan.Reports.Domain.csproj.CoreCompileInputs.cache
+C:\Users\jcoroy\source\repos\FScan.Reports\Domain\obj\Debug\net8.0\FScan.Reports.Domain.dll
+C:\Users\jcoroy\source\repos\FScan.Reports\Domain\obj\Debug\net8.0\refint\FScan.Reports.Domain.dll
+C:\Users\jcoroy\source\repos\FScan.Reports\Domain\obj\Debug\net8.0\FScan.Reports.Domain.pdb
+C:\Users\jcoroy\source\repos\FScan.Reports\Domain\obj\Debug\net8.0\ref\FScan.Reports.Domain.dll

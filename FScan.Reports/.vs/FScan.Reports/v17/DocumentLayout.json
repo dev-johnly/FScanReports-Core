@@ -1,0 +1,264 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\jcoroy\\source\\repos\\FScan.Reports\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C8C061F7-3CBE-42CC-8341-38D874443302}|FScan.Reports.Infrastructure\\FScan.Reports.Infrastructure.csproj|c:\\users\\jcoroy\\source\\repos\\fscan.reports\\fscan.reports.infrastructure\\repositories\\reportsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8C061F7-3CBE-42CC-8341-38D874443302}|FScan.Reports.Infrastructure\\FScan.Reports.Infrastructure.csproj|solutionrelative:fscan.reports.infrastructure\\repositories\\reportsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{171A7FAC-DAD5-480A-A47E-9046B2C094C7}|FScanReports\\Server\\FScanReports.Server.csproj|c:\\users\\jcoroy\\source\\repos\\fscan.reports\\fscanreports\\server\\controller\\reportscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{171A7FAC-DAD5-480A-A47E-9046B2C094C7}|FScanReports\\Server\\FScanReports.Server.csproj|solutionrelative:fscanreports\\server\\controller\\reportscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56B79F6F-887C-4AAA-A086-534D2C181B05}|FScanReports\\Client\\FScanReports.Client.csproj|c:\\users\\jcoroy\\source\\repos\\fscan.reports\\fscanreports\\client\\pages\\reports\\attendancereport.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{56B79F6F-887C-4AAA-A086-534D2C181B05}|FScanReports\\Client\\FScanReports.Client.csproj|solutionrelative:fscanreports\\client\\pages\\reports\\attendancereport.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{303E77B9-70C1-484B-AC42-3AAC604E2288}|FScan.Reports.Application\\FScan.Reports.Application.csproj|c:\\users\\jcoroy\\source\\repos\\fscan.reports\\fscan.reports.application\\models\\dtos\\timesheetdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{303E77B9-70C1-484B-AC42-3AAC604E2288}|FScan.Reports.Application\\FScan.Reports.Application.csproj|solutionrelative:fscan.reports.application\\models\\dtos\\timesheetdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{303E77B9-70C1-484B-AC42-3AAC604E2288}|FScan.Reports.Application\\FScan.Reports.Application.csproj|c:\\users\\jcoroy\\source\\repos\\fscan.reports\\fscan.reports.application\\models\\dtos\\attendancedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{303E77B9-70C1-484B-AC42-3AAC604E2288}|FScan.Reports.Application\\FScan.Reports.Application.csproj|solutionrelative:fscan.reports.application\\models\\dtos\\attendancedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{171A7FAC-DAD5-480A-A47E-9046B2C094C7}|FScanReports\\Server\\FScanReports.Server.csproj|c:\\users\\jcoroy\\source\\repos\\fscan.reports\\fscanreports\\server\\controller\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{171A7FAC-DAD5-480A-A47E-9046B2C094C7}|FScanReports\\Server\\FScanReports.Server.csproj|solutionrelative:fscanreports\\server\\controller\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56B79F6F-887C-4AAA-A086-534D2C181B05}|FScanReports\\Client\\FScanReports.Client.csproj|c:\\users\\jcoroy\\source\\repos\\fscan.reports\\fscanreports\\client\\services\\reportsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56B79F6F-887C-4AAA-A086-534D2C181B05}|FScanReports\\Client\\FScanReports.Client.csproj|solutionrelative:fscanreports\\client\\services\\reportsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56B79F6F-887C-4AAA-A086-534D2C181B05}|FScanReports\\Client\\FScanReports.Client.csproj|c:\\users\\jcoroy\\source\\repos\\fscan.reports\\fscanreports\\client\\contracts\\ireportsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56B79F6F-887C-4AAA-A086-534D2C181B05}|FScanReports\\Client\\FScanReports.Client.csproj|solutionrelative:fscanreports\\client\\contracts\\ireportsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{303E77B9-70C1-484B-AC42-3AAC604E2288}|FScan.Reports.Application\\FScan.Reports.Application.csproj|c:\\users\\jcoroy\\source\\repos\\fscan.reports\\fscan.reports.application\\contracts\\ireportsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{303E77B9-70C1-484B-AC42-3AAC604E2288}|FScan.Reports.Application\\FScan.Reports.Application.csproj|solutionrelative:fscan.reports.application\\contracts\\ireportsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{303E77B9-70C1-484B-AC42-3AAC604E2288}|FScan.Reports.Application\\FScan.Reports.Application.csproj|c:\\users\\jcoroy\\source\\repos\\fscan.reports\\fscan.reports.application\\models\\requests\\datefilterrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{303E77B9-70C1-484B-AC42-3AAC604E2288}|FScan.Reports.Application\\FScan.Reports.Application.csproj|solutionrelative:fscan.reports.application\\models\\requests\\datefilterrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{171A7FAC-DAD5-480A-A47E-9046B2C094C7}|FScanReports\\Server\\FScanReports.Server.csproj|c:\\users\\jcoroy\\source\\repos\\fscan.reports\\fscanreports\\server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{171A7FAC-DAD5-480A-A47E-9046B2C094C7}|FScanReports\\Server\\FScanReports.Server.csproj|solutionrelative:fscanreports\\server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56B79F6F-887C-4AAA-A086-534D2C181B05}|FScanReports\\Client\\FScanReports.Client.csproj|c:\\users\\jcoroy\\source\\repos\\fscan.reports\\fscanreports\\client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56B79F6F-887C-4AAA-A086-534D2C181B05}|FScanReports\\Client\\FScanReports.Client.csproj|solutionrelative:fscanreports\\client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{303E77B9-70C1-484B-AC42-3AAC604E2288}|FScan.Reports.Application\\FScan.Reports.Application.csproj|c:\\users\\jcoroy\\source\\repos\\fscan.reports\\fscan.reports.application\\models\\dtos\\fslogsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{303E77B9-70C1-484B-AC42-3AAC604E2288}|FScan.Reports.Application\\FScan.Reports.Application.csproj|solutionrelative:fscan.reports.application\\models\\dtos\\fslogsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56B79F6F-887C-4AAA-A086-534D2C181B05}|FScanReports\\Client\\FScanReports.Client.csproj|c:\\users\\jcoroy\\source\\repos\\fscan.reports\\fscanreports\\client\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{56B79F6F-887C-4AAA-A086-534D2C181B05}|FScanReports\\Client\\FScanReports.Client.csproj|solutionrelative:fscanreports\\client\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 276,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ReportsRepository.cs",
+              "DocumentMoniker": "C:\\Users\\jcoroy\\source\\repos\\FScan.Reports\\FScan.Reports.Infrastructure\\Repositories\\ReportsRepository.cs",
+              "RelativeDocumentMoniker": "FScan.Reports.Infrastructure\\Repositories\\ReportsRepository.cs",
+              "ToolTip": "C:\\Users\\jcoroy\\source\\repos\\FScan.Reports\\FScan.Reports.Infrastructure\\Repositories\\ReportsRepository.cs",
+              "RelativeToolTip": "FScan.Reports.Infrastructure\\Repositories\\ReportsRepository.cs",
+              "ViewState": "AQIAAGoAAAAAAAAAAAAtwH8AAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-23T02:21:30.36Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AttendanceDTO.cs",
+              "DocumentMoniker": "C:\\Users\\jcoroy\\source\\repos\\FScan.Reports\\FScan.Reports.Application\\Models\\DTOs\\AttendanceDTO.cs",
+              "RelativeDocumentMoniker": "FScan.Reports.Application\\Models\\DTOs\\AttendanceDTO.cs",
+              "ToolTip": "C:\\Users\\jcoroy\\source\\repos\\FScan.Reports\\FScan.Reports.Application\\Models\\DTOs\\AttendanceDTO.cs",
+              "RelativeToolTip": "FScan.Reports.Application\\Models\\DTOs\\AttendanceDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAkAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-23T06:53:52.412Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AttendanceReport.razor",
+              "DocumentMoniker": "C:\\Users\\jcoroy\\source\\repos\\FScan.Reports\\FScanReports\\Client\\Pages\\Reports\\AttendanceReport.razor",
+              "RelativeDocumentMoniker": "FScanReports\\Client\\Pages\\Reports\\AttendanceReport.razor",
+              "ToolTip": "C:\\Users\\jcoroy\\source\\repos\\FScan.Reports\\FScanReports\\Client\\Pages\\Reports\\AttendanceReport.razor",
+              "RelativeToolTip": "FScanReports\\Client\\Pages\\Reports\\AttendanceReport.razor",
+              "ViewState": "AQIAAEMAAAAAAAAAAAAUwGIAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-23T02:26:20.986Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AuthenticationController.cs",
+              "DocumentMoniker": "C:\\Users\\jcoroy\\source\\repos\\FScan.Reports\\FScanReports\\Server\\Controller\\AuthenticationController.cs",
+              "RelativeDocumentMoniker": "FScanReports\\Server\\Controller\\AuthenticationController.cs",
+              "ToolTip": "C:\\Users\\jcoroy\\source\\repos\\FScan.Reports\\FScanReports\\Server\\Controller\\AuthenticationController.cs",
+              "RelativeToolTip": "FScanReports\\Server\\Controller\\AuthenticationController.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAwwBkAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-23T06:52:00.054Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ReportsController.cs",
+              "DocumentMoniker": "C:\\Users\\jcoroy\\source\\repos\\FScan.Reports\\FScanReports\\Server\\Controller\\ReportsController.cs",
+              "RelativeDocumentMoniker": "FScanReports\\Server\\Controller\\ReportsController.cs",
+              "ToolTip": "C:\\Users\\jcoroy\\source\\repos\\FScan.Reports\\FScanReports\\Server\\Controller\\ReportsController.cs",
+              "RelativeToolTip": "FScanReports\\Server\\Controller\\ReportsController.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAzwCAAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-23T06:10:10.318Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TimeSheetDTO.cs",
+              "DocumentMoniker": "C:\\Users\\jcoroy\\source\\repos\\FScan.Reports\\FScan.Reports.Application\\Models\\DTOs\\TimeSheetDTO.cs",
+              "RelativeDocumentMoniker": "FScan.Reports.Application\\Models\\DTOs\\TimeSheetDTO.cs",
+              "ToolTip": "C:\\Users\\jcoroy\\source\\repos\\FScan.Reports\\FScan.Reports.Application\\Models\\DTOs\\TimeSheetDTO.cs",
+              "RelativeToolTip": "FScan.Reports.Application\\Models\\DTOs\\TimeSheetDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwBwAAAA7AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-23T02:50:42.711Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IReportsService.cs",
+              "DocumentMoniker": "C:\\Users\\jcoroy\\source\\repos\\FScan.Reports\\FScanReports\\Client\\Contracts\\IReportsService.cs",
+              "RelativeDocumentMoniker": "FScanReports\\Client\\Contracts\\IReportsService.cs",
+              "ToolTip": "C:\\Users\\jcoroy\\source\\repos\\FScan.Reports\\FScanReports\\Client\\Contracts\\IReportsService.cs",
+              "RelativeToolTip": "FScanReports\\Client\\Contracts\\IReportsService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-23T03:54:03.265Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IReportsRepository.cs",
+              "DocumentMoniker": "C:\\Users\\jcoroy\\source\\repos\\FScan.Reports\\FScan.Reports.Application\\Contracts\\IReportsRepository.cs",
+              "RelativeDocumentMoniker": "FScan.Reports.Application\\Contracts\\IReportsRepository.cs",
+              "ToolTip": "C:\\Users\\jcoroy\\source\\repos\\FScan.Reports\\FScan.Reports.Application\\Contracts\\IReportsRepository.cs",
+              "RelativeToolTip": "FScan.Reports.Application\\Contracts\\IReportsRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAoAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-23T08:36:30.387Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\jcoroy\\source\\repos\\FScan.Reports\\FScanReports\\Server\\Program.cs",
+              "RelativeDocumentMoniker": "FScanReports\\Server\\Program.cs",
+              "ToolTip": "C:\\Users\\jcoroy\\source\\repos\\FScan.Reports\\FScanReports\\Server\\Program.cs",
+              "RelativeToolTip": "FScanReports\\Server\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAALAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-23T07:05:19.441Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\jcoroy\\source\\repos\\FScan.Reports\\FScanReports\\Client\\Program.cs",
+              "RelativeDocumentMoniker": "FScanReports\\Client\\Program.cs",
+              "ToolTip": "C:\\Users\\jcoroy\\source\\repos\\FScan.Reports\\FScanReports\\Client\\Program.cs",
+              "RelativeToolTip": "FScanReports\\Client\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-23T07:05:11.038Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "_Imports.razor",
+              "DocumentMoniker": "C:\\Users\\jcoroy\\source\\repos\\FScan.Reports\\FScanReports\\Client\\_Imports.razor",
+              "RelativeDocumentMoniker": "FScanReports\\Client\\_Imports.razor",
+              "ToolTip": "C:\\Users\\jcoroy\\source\\repos\\FScan.Reports\\FScanReports\\Client\\_Imports.razor",
+              "RelativeToolTip": "FScanReports\\Client\\_Imports.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-23T02:56:50.993Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "FSLogsDTO.cs",
+              "DocumentMoniker": "C:\\Users\\jcoroy\\source\\repos\\FScan.Reports\\FScan.Reports.Application\\Models\\DTOs\\FSLogsDTO.cs",
+              "RelativeDocumentMoniker": "FScan.Reports.Application\\Models\\DTOs\\FSLogsDTO.cs",
+              "ToolTip": "C:\\Users\\jcoroy\\source\\repos\\FScan.Reports\\FScan.Reports.Application\\Models\\DTOs\\FSLogsDTO.cs",
+              "RelativeToolTip": "FScan.Reports.Application\\Models\\DTOs\\FSLogsDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAkAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-23T06:56:42.713Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 145,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "DateFilterRequest.cs",
+              "DocumentMoniker": "C:\\Users\\jcoroy\\source\\repos\\FScan.Reports\\FScan.Reports.Application\\Models\\Requests\\DateFilterRequest.cs",
+              "RelativeDocumentMoniker": "FScan.Reports.Application\\Models\\Requests\\DateFilterRequest.cs",
+              "ToolTip": "C:\\Users\\jcoroy\\source\\repos\\FScan.Reports\\FScan.Reports.Application\\Models\\Requests\\DateFilterRequest.cs",
+              "RelativeToolTip": "FScan.Reports.Application\\Models\\Requests\\DateFilterRequest.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-23T08:34:36.393Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ReportsService.cs",
+              "DocumentMoniker": "C:\\Users\\jcoroy\\source\\repos\\FScan.Reports\\FScanReports\\Client\\Services\\ReportsService.cs",
+              "RelativeDocumentMoniker": "FScanReports\\Client\\Services\\ReportsService.cs",
+              "ToolTip": "C:\\Users\\jcoroy\\source\\repos\\FScan.Reports\\FScanReports\\Client\\Services\\ReportsService.cs",
+              "RelativeToolTip": "FScanReports\\Client\\Services\\ReportsService.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAwCMAAABPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-23T03:54:08.778Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
