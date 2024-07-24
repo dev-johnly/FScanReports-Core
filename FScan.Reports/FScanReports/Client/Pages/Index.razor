@@ -1,0 +1,21 @@
+﻿@page "/"
+@inject AuthenticationStateProvider AuthStateProvider
+
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        if (!user.Identity.IsAuthenticated)
+        {
+            Navigation.NavigateTo("/login", forceLoad: true);
+        }
+        else
+        {
+
+        }
+    }
+}
+<PageTitle>Home</PageTitle>

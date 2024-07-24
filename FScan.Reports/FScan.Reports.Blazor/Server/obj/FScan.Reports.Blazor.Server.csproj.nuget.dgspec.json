@@ -1,0 +1,143 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\jcoroy\\source\\repos\\FScan.Reports\\FScan.Reports.Blazor\\Server\\FScan.Reports.Blazor.Server.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\jcoroy\\source\\repos\\FScan.Reports\\FScan.Reports.Blazor\\Server\\FScan.Reports.Blazor.Server.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\jcoroy\\source\\repos\\FScan.Reports\\FScan.Reports.Blazor\\Server\\FScan.Reports.Blazor.Server.csproj",
+        "projectName": "FScan.Reports.Blazor.Server",
+        "projectPath": "C:\\Users\\jcoroy\\source\\repos\\FScan.Reports\\FScan.Reports.Blazor\\Server\\FScan.Reports.Blazor.Server.csproj",
+        "packagesPath": "C:\\Users\\jcoroy\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jcoroy\\source\\repos\\FScan.Reports\\FScan.Reports.Blazor\\Server\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\jcoroy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\jcoroy\\source\\repos\\FScan.Reports\\FScan.Reports.Blazor\\Shared\\FScan.Reports.Blazor.Shared.csproj": {
+                "projectPath": "C:\\Users\\jcoroy\\source\\repos\\FScan.Reports\\FScan.Reports.Blazor\\Shared\\FScan.Reports.Blazor.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Components.WebAssembly.Server": {
+              "target": "Package",
+              "version": "[7.0.19, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\jcoroy\\source\\repos\\FScan.Reports\\FScan.Reports.Blazor\\Shared\\FScan.Reports.Blazor.Shared.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\jcoroy\\source\\repos\\FScan.Reports\\FScan.Reports.Blazor\\Shared\\FScan.Reports.Blazor.Shared.csproj",
+        "projectName": "FScan.Reports.Blazor.Shared",
+        "projectPath": "C:\\Users\\jcoroy\\source\\repos\\FScan.Reports\\FScan.Reports.Blazor\\Shared\\FScan.Reports.Blazor.Shared.csproj",
+        "packagesPath": "C:\\Users\\jcoroy\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jcoroy\\source\\repos\\FScan.Reports\\FScan.Reports.Blazor\\Shared\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\jcoroy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

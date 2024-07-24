@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "XEuAKSO2AQ4=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\jcoroy\\source\\repos\\FScan.Reports\\FScan.Reports.Blazor\\Server\\FScan.Reports.Blazor.Server.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\jcoroy\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly.server\\7.0.19\\microsoft.aspnetcore.components.webassembly.server.7.0.19.nupkg.sha512"
+  ],
+  "logs": []
+}

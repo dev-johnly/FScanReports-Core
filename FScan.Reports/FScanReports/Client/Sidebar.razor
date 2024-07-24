@@ -1,0 +1,64 @@
+﻿<div class="nk-sidebar nk-sidebar-fixed is-light" style="display: @(isSidebarOpen ? "block" : "none");">
+    <div class="nk-sidebar-element nk-sidebar-head" style="padding: 14px;10px">
+        <div class="nk-sidebar-brand">
+            <a href="/" class="logo-link nk-sidebar-logo">
+                <img class="logo-dark logo-img" src="/images/BOC_banner_new.png" srcset="images/boc_logo_affiliate.jpg 2x" alt="logo-dark" />
+            </a>
+        </div>
+     
+    </div>
+    <div class="nk-sidebar-element nk-sidebar-body">
+        <div class="nk-sidebar-content">
+            <div class="nk-sidebar-menu" data-simplebar>
+                <ul class="nk-menu">
+
+                    <li class="nk-menu-heading">
+                        <h6 class="overline-title text-primary-alt">Reports</h6>
+                    </li>
+
+
+                    <li class="nk-menu-item @(activeMenu == "AttendanceReports" ? "active current-page" : "")">
+                        <a href="AttendanceReport" class="nk-menu-link" @onclick='() => SetActiveMenu("AttendanceReports")'>
+                            <span class="nk-menu-icon"><em class="icon ni ni-reports-alt"></em></span>
+                            <span class="nk-menu-text">Attendance Reports</span>
+                        </a>
+                    </li>
+                    <li class="nk-menu-item @(activeMenu == "FingerScanLogs" ? "active current-page" : "")">
+                        <a href="FingerPrintScanLogs" class="nk-menu-link" @onclick='() => SetActiveMenu("FingerScanLogs")'>
+                            <span class="nk-menu-icon"><em class="icon ni ni-scan-fill"></em></span>
+                            <span class="nk-menu-text">FingerScan Logs</span>
+                           
+                        </a>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+@code {
+  
+    private bool isSidebarOpen = true;
+    private bool ReportsMaintenanceMenuDisplay = false;
+    private string? activeMenu;
+    private void ToggleSidebar()
+    {
+        isSidebarOpen = !isSidebarOpen;
+    }
+
+
+    private void ToggleBankReportsMaintenanceMenu()
+    {
+        ReportsMaintenanceMenuDisplay = !ReportsMaintenanceMenuDisplay;
+    }
+
+    private void SetActiveMenu(string menuName)
+    {
+        activeMenu = menuName;
+    }
+}

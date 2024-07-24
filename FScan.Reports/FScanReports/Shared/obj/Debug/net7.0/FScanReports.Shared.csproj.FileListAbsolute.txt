@@ -1,0 +1,11 @@
+C:\Users\jcoroy\source\repos\FScan.Reports\FScanReports\Shared\bin\Debug\net7.0\FScanReports.Shared.deps.json
+C:\Users\jcoroy\source\repos\FScan.Reports\FScanReports\Shared\bin\Debug\net7.0\FScanReports.Shared.dll
+C:\Users\jcoroy\source\repos\FScan.Reports\FScanReports\Shared\bin\Debug\net7.0\FScanReports.Shared.pdb
+C:\Users\jcoroy\source\repos\FScan.Reports\FScanReports\Shared\obj\Debug\net7.0\FScanReports.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jcoroy\source\repos\FScan.Reports\FScanReports\Shared\obj\Debug\net7.0\FScanReports.Shared.AssemblyInfoInputs.cache
+C:\Users\jcoroy\source\repos\FScan.Reports\FScanReports\Shared\obj\Debug\net7.0\FScanReports.Shared.AssemblyInfo.cs
+C:\Users\jcoroy\source\repos\FScan.Reports\FScanReports\Shared\obj\Debug\net7.0\FScanReports.Shared.csproj.CoreCompileInputs.cache
+C:\Users\jcoroy\source\repos\FScan.Reports\FScanReports\Shared\obj\Debug\net7.0\FScanReports.Shared.dll
+C:\Users\jcoroy\source\repos\FScan.Reports\FScanReports\Shared\obj\Debug\net7.0\refint\FScanReports.Shared.dll
+C:\Users\jcoroy\source\repos\FScan.Reports\FScanReports\Shared\obj\Debug\net7.0\FScanReports.Shared.pdb
+C:\Users\jcoroy\source\repos\FScan.Reports\FScanReports\Shared\obj\Debug\net7.0\ref\FScanReports.Shared.dll

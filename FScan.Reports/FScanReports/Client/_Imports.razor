@@ -1,0 +1,29 @@
+﻿@using System.Net.Http
+@using System.Net.Http.Json
+@using Blazored.LocalStorage
+@using FScanReports.Client.Contracts
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Components.WebAssembly.Http
+@using Microsoft.JSInterop
+@using FScanReports.Client
+@using FScan.Reports.Application.Models.ViewModels
+@using Microsoft.AspNetCore.Components.Forms
+@using FScanReports.Client.Services
+@using Blazored.Toast
+@using Blazored.Toast.Services
+@using Blazored.Toast.Configuration;
+@using FScanReports.Client.States
+@using FScan.Reports.Application.Models.DTOs
+@* 
+@using static System.Net.WebRequestMethods *@
+@inject IToastService toastService
+@inject HttpClient Http
+
+@inject IAuthenticationService AuthenticationService
+@inject IReportsService ReportsService
+
+@inject ILocalStorageService localStorageService
+@inject AuthenticationStateProvider AuthStateProvider
+@inject NavigationManager Navigation

@@ -1,0 +1,15 @@
+C:\Users\jcoroy\source\repos\FScan.Reports\FScan.Reports.Application\bin\Debug\net8.0\FScan.Reports.Application.deps.json
+C:\Users\jcoroy\source\repos\FScan.Reports\FScan.Reports.Application\bin\Debug\net8.0\FScan.Reports.Application.dll
+C:\Users\jcoroy\source\repos\FScan.Reports\FScan.Reports.Application\bin\Debug\net8.0\FScan.Reports.Application.pdb
+C:\Users\jcoroy\source\repos\FScan.Reports\FScan.Reports.Application\bin\Debug\net8.0\FScan.Reports.Domain.dll
+C:\Users\jcoroy\source\repos\FScan.Reports\FScan.Reports.Application\bin\Debug\net8.0\FScan.Reports.Domain.pdb
+C:\Users\jcoroy\source\repos\FScan.Reports\FScan.Reports.Application\obj\Debug\net8.0\FScan.Reports.Application.csproj.AssemblyReference.cache
+C:\Users\jcoroy\source\repos\FScan.Reports\FScan.Reports.Application\obj\Debug\net8.0\FScan.Reports.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jcoroy\source\repos\FScan.Reports\FScan.Reports.Application\obj\Debug\net8.0\FScan.Reports.Application.AssemblyInfoInputs.cache
+C:\Users\jcoroy\source\repos\FScan.Reports\FScan.Reports.Application\obj\Debug\net8.0\FScan.Reports.Application.AssemblyInfo.cs
+C:\Users\jcoroy\source\repos\FScan.Reports\FScan.Reports.Application\obj\Debug\net8.0\FScan.Reports.Application.csproj.CoreCompileInputs.cache
+C:\Users\jcoroy\source\repos\FScan.Reports\FScan.Reports.Application\obj\Debug\net8.0\FScan.Re.80F2FB5C.Up2Date
+C:\Users\jcoroy\source\repos\FScan.Reports\FScan.Reports.Application\obj\Debug\net8.0\FScan.Reports.Application.dll
+C:\Users\jcoroy\source\repos\FScan.Reports\FScan.Reports.Application\obj\Debug\net8.0\refint\FScan.Reports.Application.dll
+C:\Users\jcoroy\source\repos\FScan.Reports\FScan.Reports.Application\obj\Debug\net8.0\FScan.Reports.Application.pdb
+C:\Users\jcoroy\source\repos\FScan.Reports\FScan.Reports.Application\obj\Debug\net8.0\ref\FScan.Reports.Application.dll
