@@ -13,8 +13,8 @@ public class NGAC_AUTHLOG
     public long IndexKey { get; set; }
     public long? UserIDIndex { get; set; }
     public DateTime? TransactionTime { get; set; }
-    public string UserID { get; set; }
-    public int TerminalID { get; set; }
+    public string? UserID { get; set; }
+    public int? TerminalID { get; set; }
     public int? AuthType { get; set; }
     public int? AuthResult { get; set; }
     public int? FunctionKey { get; set; }
@@ -23,7 +23,7 @@ public class NGAC_AUTHLOG
     public int? LogType { get; set; }
     public int? TempValue { get; set; }
     public int? MinIndex { get; set; }
-    public string PairUserID { get; set; }
+    public string? PairUserID { get; set; }
     public int? PairAuthType { get; set; }
     public int? PairAuthResult { get; set; }
 }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FScanReports.Client")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+29578f70506d64159a93a1e393ba7a79685f0937")]
 [assembly: System.Reflection.AssemblyProductAttribute("FScanReports.Client")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FScanReports.Client")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

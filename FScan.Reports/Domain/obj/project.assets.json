@@ -561,19 +561,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jcoroy\\.nuget\\packages\\": {}
+    "C:\\Users\\johnly-oroy\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jcoroy\\source\\repos\\FScan.Reports\\Domain\\FScan.Reports.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\johnly-oroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\Domain\\FScan.Reports.Domain.csproj",
       "projectName": "FScan.Reports.Domain",
-      "projectPath": "C:\\Users\\jcoroy\\source\\repos\\FScan.Reports\\Domain\\FScan.Reports.Domain.csproj",
-      "packagesPath": "C:\\Users\\jcoroy\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jcoroy\\source\\repos\\FScan.Reports\\Domain\\obj\\",
+      "projectPath": "C:\\Users\\johnly-oroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\Domain\\FScan.Reports.Domain.csproj",
+      "packagesPath": "C:\\Users\\johnly-oroy\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\johnly-oroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\Domain\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\jcoroy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\johnly-oroy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

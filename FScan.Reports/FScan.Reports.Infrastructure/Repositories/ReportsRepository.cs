@@ -1,6 +1,7 @@
 ﻿using FScan.Reports.Application.Contracts;
 using FScan.Reports.Application.Models.DTOs;
 using FScan.Reports.Application.Models.Requests;
+using FScan.Reports.Application.Models.Responses;
 using FScan.Reports.Application.Models.ViewModels;
 using FScan.Reports.Domain.Entities;
 using FScan.Reports.Infrastructure.Data;
@@ -38,7 +39,7 @@ public class ReportsRepository : IReportsRepository
         var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
         var attList = await GetTimesheet(firstDayOfMonth, lastDayOfMonth);
 
-        ts.EmpId = report.ID;
+        ts.EmpId = _ID;
         ts.EmpName = report.Name;
         ts.DateFrom = firstDayOfMonth;
         ts.DateTo = lastDayOfMonth;
@@ -197,6 +198,191 @@ public class ReportsRepository : IReportsRepository
         return day;
     }
 
+    public async Task<List<FSLogsDTO>>FScanLogs()
+    {
+        var usercode = _ID;
+        var logsList = await (from A in _context.NGAC_USERINFO
+                              join B in _context.NGAC_GROUP on A.GroupID equals B.ID into grouptb
+                              from grp in grouptb.DefaultIfEmpty()
+                              where A.Name != "admin"
+                              select new FSLogsDTO
+                              {
+                                  IndexKey = A.IndexKey,
+                                  ID = A.ID,
+                                  Name = A.Name ?? "",
+                                  GroupName = grp.Name,
+                                  AccessType = A.AccessType ?? ""
+                              }).ToListAsync();
+
+        return logsList;
+
+    }
+
+    public async Task<FSLogsDetailsResponse> FScanLogsDetails(string EmployeeId, DateTime DateFrom, DateTime DateTo, [Bind("DateFrom, DateTo")] FSLogsDetailsDTO sheet, bool set)
+    {
+        FSLogsDetailsResponse response = new();
+
+        if (DateFrom.ToString("yyyy") == "0001" || DateTo.ToString("yyyy") == "0001")
+        {
+            DateFrom = DateTime.Now;
+            DateTo = DateTime.Now;
+        }
+
+        string USERIDINDEX = "";
+
+        var dft = string.Empty;
+        var Logs = new List<FSLogsDetailsDTO>();
+        DateTime date = DateTime.Now;
+        var firstDayOfMonth = new DateTime(date.Year, date.Month, 1);
+        var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
+
+        sheet.DateFrom = sheet.DateFrom;
+        sheet.DateTo = sheet.DateTo;
+        var result = await (from A in _context.NGAC_USERINFO
+                      join B in _context.NGAC_GROUP on A.GroupID equals B.ID into grouptb
+                      from grp in grouptb.DefaultIfEmpty()
+                      from C in _context.NGAC_AUTHLOG
+                      from D in _context.NGAC_TERMINAL
+                          //where A.GroupID == grp.ID
+                      where C.UserID == A.ID
+                      where D.ID == C.TerminalID
+                      where A.ID == EmployeeId
+                      where C.TransactionTime.Value.DayOfYear >= DateFrom.DayOfYear
+                      where C.TransactionTime.Value.DayOfYear <= DateTo.DayOfYear
+
+                      select new FSLogsDetailsDTO
+                      {
+                          Date = C.TransactionTime,
+                          ID = A.ID,
+                          Name = A.Name,
+                          GroupName = grp.Name,
+                          TerminalName = D.Name,
+                          FunctionKey = C.FunctionKey
+                      }).ToListAsync();
+        foreach (var item in result)
+        {
+            var i = new FSLogsDetailsDTO();
+            i.Date = item.Date;
+            i.ID = item.ID;
+            i.Name = item.Name;
+            i.GroupName = item.GroupName;
+            i.TerminalName = item.TerminalName;
+            i.FunctionKey = item.FunctionKey;
+
+
+            response.DetailsName = item.Name;
+            response.DateFrom = DateFrom.ToString("MM/dd/yyyy");
+            response.DateTo = DateTo.ToString("MM/dd/yyyy");
+            response.DetailsId = item.ID;
+            response.GroupName = item.GroupName;
+            USERIDINDEX = item.ID;
+
+            //string test = ViewData["DateFrom"].ToString();
+
+
+
+            Logs.Add(i);
+        }
+
+        if (result.Count() == 0)
+        {
+
+            var result2 = (from A in _context.NGAC_USERINFO
+                           join B in _context.NGAC_GROUP on A.GroupID equals B.ID into grouptb
+                           from grp in grouptb.DefaultIfEmpty()
+                           from C in _context.NGAC_AUTHLOG
+                           from D in _context.NGAC_TERMINAL
+                               //where A.GroupID == grp.ID
+                           where C.UserID == A.ID
+                           where D.ID == C.TerminalID
+                           where A.ID == EmployeeId
+
+                           select new FSLogsDetailsDTO
+                           {
+                               Date = C.TransactionTime,
+                               ID = A.ID,
+                               Name = A.Name,
+                               GroupName = grp.Name,
+                               TerminalName = D.Name,
+                               FunctionKey = C.FunctionKey
+                           });
+            foreach (var item in result2)
+            {
+                var i = new FSLogsDetailsDTO();
+                i.Date = item.Date;
+                i.ID = item.ID;
+                i.Name = item.Name;
+                i.GroupName = item.GroupName;
+                i.TerminalName = item.TerminalName;
+                i.FunctionKey = item.FunctionKey;
+                response.DetailsName = item.Name;
+                response.DateFrom = DateFrom.ToString("MM/dd/yyyy");
+                response.DateTo = DateTo.ToString("MM/dd/yyyy");
+                response.DetailsId = item.ID;
+                response.GroupName = item.GroupName;
+                USERIDINDEX = item.ID;
+
+
+
+                Logs.Add(i);
+            }
+
+            if (set)
+            {
+                response.GetLogs = dft;
+                response.DateFrom = DateFrom.ToString("MM/dd/yyyy");
+                response.DateTo = DateTo.ToString("MM/dd/yyyy");
+
+            }
+            else
+            {
+                response.GetLogs = dft;
+                response.DateFrom = firstDayOfMonth.ToShortDateString();
+                response.DateTo = lastDayOfMonth.ToShortDateString();
+            }
+
+
+        }
+        else
+        {
+            if (set)
+            {
+                response.GetLogsList = result;
+            }
+            else
+            {
+                response.GetLogs = dft;
+                response.DateFrom = firstDayOfMonth.ToShortDateString();
+               response.DateTo = lastDayOfMonth.ToShortDateString();
+            }
+        }
+
+        return response;
+    }
+
+
+    private List<FSLogsDetailsDTO> Logdetails(List<FSLogsDetailsDTO> attList)
+    {
+        List<FSLogsDetailsDTO> LogsDetails = new List<FSLogsDetailsDTO>();
+
+        FSLogsDetailsDTO att = null;
+
+        foreach (var item in attList)
+        {
+            att = new FSLogsDetailsDTO();
+            att.Date = item.Date;
+            att.ID = item.ID;
+            att.Name = item.Name;
+            att.GroupName = item.GroupName;
+            att.TerminalName = item.TerminalName;
+            att.FunctionKey = item.FunctionKey;
+
+
+            LogsDetails.Add(att);
+        }
+
+        return LogsDetails;
+    }
 }
 
 
