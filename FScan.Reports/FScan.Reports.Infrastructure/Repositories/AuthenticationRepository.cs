@@ -1,4 +1,5 @@
 ﻿using FScan.Reports.Application.Contracts;
+using FScan.Reports.Application.Models.DTOs;
 using FScan.Reports.Application.Models.Identity;
 using FScan.Reports.Application.Models.Responses;
 using FScan.Reports.Application.Models.ViewModels;
@@ -6,6 +7,7 @@ using FScan.Reports.Domain.Entities;
 using FScan.Reports.Infrastructure.Data;
 using FScan.Reports.Infrastructure.Helpers;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -15,6 +17,7 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,11 +27,14 @@ namespace FScan.Reports.Infrastructure.Repositories;
 public class AuthenticationRepository : GenericRepository<NGAC_USERINFO>, IAuthenticationRepository
 {
     private readonly IConfiguration _configuration;
+    private readonly UserClaimsGetter _userClaims;
+    private readonly string? _ID;
 
-    public AuthenticationRepository(FScanContext context,IConfiguration configuration) : base(context)
-    { 
-     _configuration = configuration;
-
+    public AuthenticationRepository(FScanContext context, IConfiguration configuration, IHttpContextAccessor httpContextAccessor) : base(context)
+    {
+        _configuration = configuration;
+        _userClaims = new UserClaimsGetter(httpContextAccessor);
+        _ID = _userClaims.GetClaims().ID;
     }
 
     public async Task<AuthResponse> LoginAsync(LoginVM vm)
@@ -75,7 +81,7 @@ public class AuthenticationRepository : GenericRepository<NGAC_USERINFO>, IAuthe
             {
                 response.FirstLogin = false;
                 response.Success = false;
-                response.Message = $"Credentials for '{vm.Usercode}' aren't valid.";
+                response.Message = "Invalid username or password";
             }
 
             return response;
@@ -109,16 +115,5 @@ public class AuthenticationRepository : GenericRepository<NGAC_USERINFO>, IAuthe
         return new JwtSecurityTokenHandler().WriteToken(token);
     }
 
-    //private ClaimsPrincipal AuthenticateUser(NGAC_USERINFO user)
-    //{
-    //    var claims = new List<Claim>
-    //{
-    //    new Claim(ClaimTypes.NameIdentifier, user.ID),
-    //    new Claim(ClaimTypes.Name, user.Name!),
-    //    new Claim(ClaimTypes.Role, user.AccessType!)
-    //};
 
-    //    var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-    //    return new ClaimsPrincipal(identity);
-    //}
 }

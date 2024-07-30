@@ -1,16 +1,54 @@
 ﻿@page "/FingerPrintScanLogs"
 
+
 <div class="nk-block">
     <div class="row g-gs">
         <div class="col-xxl-12">
             <div class="card card-full">
                 <div class="card-inner">
                     <div class="card-title">
-                        <h5 class="title">FScan Logs</h5>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5 class="title">FScan Logs</h5>
+                            <EditForm Model="@this" OnValidSubmit="OnSearch" class="d-flex align-items-center">
+                                <InputText id="search-input" class="form-control me-2" placeholder="Search..." @bind-Value="SearchKey" />
+                                <button type="submit" class="btn btn-primary">Search</button>
+                            </EditForm>
+                        </div>
                     </div>
+
+                    <table class="table table-bordered table-striped table-hover" id="dataTable">
+                        <thead>
+                            <tr>
+                                <th>Index Key</th>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Group</th>
+                                <th>Access Type</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in FSLogs)
+                            {
+                                <tr>
+                                    <td>
+                                        <a href="FScanLogsDetails/@item.ID"><span>@item.IndexKey</span></a>
+                                    </td>
+                                    <td>@item.ID</td>
+                                    <td>@item.Name</td>
+                                    <td>@item.GroupName</td>
+                                    <td>@item.AccessType</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
                  
                 </div>
-               
+ 
+                <CustomPagination TItem="FSLogsDTO"
+                                  CurrentPage="@CurrentPage"
+                                  TotalPages="@TotalPages"
+                                  PageChanged="OnPageChanged" />
 
             </div>
         </div>
@@ -20,5 +58,59 @@
     </div>
 </div>
 @code {
-   
+    private List<FSLogsDTO> FSLogs = new();
+    public string? ErrorMessage;
+    private bool isLoading = true;
+
+    public string? SearchKey { get; set; }
+    public int CurrentPage { get; set; } = 1;
+    public int TotalPages { get; set; }
+    public int PageSize { get; set; } = 10;
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        string? token = await localStorageService.GetItemAsStringAsync("auth")!;
+        Http.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+        await LoadData();
+
+    }
+
+    private async Task LoadData()
+    {
+        // FSLogs = await ReportsService.FScanLogs();
+
+
+        isLoading = true;
+        try
+        {
+            var result = await ReportsService.FScanLogsAsync(SearchKey, CurrentPage, PageSize);
+            if (result != null)
+            {
+                FSLogs = result.Items;
+                TotalPages = result.TotalPages;
+            }
+        }
+        catch (Exception ex)
+        {
+            ErrorMessage = $"Error loading data: {ex.Message}";
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+
+    private async Task OnSearch()
+    {
+        CurrentPage = 1;
+        await LoadData();
+    }
+
+    private async Task OnPageChanged(int pageNumber)
+    {
+        CurrentPage = pageNumber;
+        await LoadData();
+    }
 }

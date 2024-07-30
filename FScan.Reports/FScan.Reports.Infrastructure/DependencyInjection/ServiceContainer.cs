@@ -55,11 +55,13 @@ namespace FScan.Reports.Infrastructure.DependencyInjection
                 };
             });
 
-            
+            services.AddHttpContextAccessor();
             services.AddScoped<IAuthenticationRepository, AuthenticationRepository>();
             services.AddScoped<IReportsRepository, ReportsRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSingleton<UserClaimsGetter>();
+      
 
             return services;
         

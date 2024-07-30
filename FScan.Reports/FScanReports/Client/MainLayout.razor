@@ -77,12 +77,12 @@
                                         </div>
                                         <div class="dropdown-inner">
                                             <ul class="link-list">
-                                                @if (context.User.Claims.Any(x => x.Type == ClaimTypes.Role && x.Value == "Administrator") != null)
+                                                @if (Role == "Administrator")
                                                 {
-                                                    <li><a href="html/user-profile-regular.html"><em class="icon ni ni-user-alt"></em><span>Reset Password</span></a></li>
+                                                    <li><a href="ResetPassword"><em class="icon ni ni-user-alt"></em><span>Reset Password</span></a></li>
 
                                                 }
-                                                <li><a href="html/user-profile-setting.html"><em class="icon ni ni-setting-alt"></em><span>Change Password</span></a></li>
+                                                <li><a href="ChangePassword"><em class="icon ni ni-setting-alt"></em><span>Change Password</span></a></li>
                                             </ul>
                                         </div>
                                         <div class="dropdown-inner">

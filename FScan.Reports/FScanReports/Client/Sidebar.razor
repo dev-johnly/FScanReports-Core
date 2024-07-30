@@ -1,4 +1,13 @@
-﻿<div class="nk-sidebar nk-sidebar-fixed is-light" style="display: @(isSidebarOpen ? "block" : "none");">
+﻿@using System.IdentityModel.Tokens.Jwt
+@using Blazored.LocalStorage
+@using FScanReports.Client.States
+@using System.Net.Http.Headers
+@using System.Security.Claims
+@inject ILocalStorageService localStorageService
+@inject HttpClient Http
+@inherits LayoutComponentBase
+
+<div class="nk-sidebar nk-sidebar-fixed is-light" style="display: @(isSidebarOpen ? "block" : "none");">
     <div class="nk-sidebar-element nk-sidebar-head" style="padding: 14px;10px">
         <div class="nk-sidebar-brand">
             <a href="/" class="logo-link nk-sidebar-logo">
@@ -23,15 +32,26 @@
                             <span class="nk-menu-text">Attendance Reports</span>
                         </a>
                     </li>
-                    <li class="nk-menu-item @(activeMenu == "FingerScanLogs" ? "active current-page" : "")">
-                        <a href="FingerPrintScanLogs" class="nk-menu-link" @onclick='() => SetActiveMenu("FingerScanLogs")'>
-                            <span class="nk-menu-icon"><em class="icon ni ni-scan-fill"></em></span>
-                            <span class="nk-menu-text">FingerScan Logs</span>
-                           
-                        </a>
-                    </li>
+                    @if (Role == "User")
+                    {
+                        <li class="nk-menu-item @(activeMenu == "FScanLogsDetails" ? "active current-page" : "")">
+                            <a href="FScanLogsDetails/@CurrentUserID" class="nk-menu-link" @onclick='() => SetActiveMenu("FScanLogsDetails")'>
+                                <span class="nk-menu-icon"><em class="icon ni ni-scan-fill"></em></span>
+                                <span class="nk-menu-text">FingerScan Logs</span>
 
+                            </a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nk-menu-item @(activeMenu == "FingerScanLogs" ? "active current-page" : "")">
+                            <a href="FingerPrintScanLogs" class="nk-menu-link" @onclick='() => SetActiveMenu("FingerScanLogs")'>
+                                <span class="nk-menu-icon"><em class="icon ni ni-scan-fill"></em></span>
+                                <span class="nk-menu-text">FingerScan Logs (Admin)</span>
 
+                            </a>
+                        </li>
+                    }
                 </ul>
             </div>
         </div>
@@ -42,10 +62,30 @@
 
 
 @code {
-  
+
     private bool isSidebarOpen = true;
     private bool ReportsMaintenanceMenuDisplay = false;
     private string? activeMenu;
+    private string? CurrentUserID;
+    private string? Role;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        var token = await localStorageService.GetItemAsStringAsync("auth");
+
+        if (!string.IsNullOrEmpty(token))
+        {
+            var handler = new JwtSecurityTokenHandler();
+            var jwtToken = handler.ReadJwtToken(token);
+
+            CurrentUserID = jwtToken.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value ?? string.Empty;
+            Role = jwtToken.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value ?? string.Empty;
+            Http.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+        }
+    }
+ 
+
     private void ToggleSidebar()
     {
         isSidebarOpen = !isSidebarOpen;
@@ -61,4 +101,6 @@
     {
         activeMenu = menuName;
     }
+
+
 }

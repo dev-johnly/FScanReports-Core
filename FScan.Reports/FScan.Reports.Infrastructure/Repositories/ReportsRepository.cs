@@ -1,11 +1,13 @@
 ﻿using FScan.Reports.Application.Contracts;
 using FScan.Reports.Application.Models.DTOs;
+using FScan.Reports.Application.Models.Helpers;
 using FScan.Reports.Application.Models.Requests;
 using FScan.Reports.Application.Models.Responses;
 using FScan.Reports.Application.Models.ViewModels;
 using FScan.Reports.Domain.Entities;
 using FScan.Reports.Infrastructure.Data;
 using FScan.Reports.Infrastructure.Helpers;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -13,6 +15,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace FScan.Reports.Infrastructure.Repositories;
 
@@ -22,9 +25,10 @@ public class ReportsRepository : IReportsRepository
     private readonly FScanContext _context;
     private readonly string? _ID;
 
-    public ReportsRepository(UserClaimsGetter userClaims, FScanContext context)
+    public ReportsRepository(FScanContext context, IHttpContextAccessor httpContextAccessor)
     {
-        _userClaims = userClaims;
+        //_userClaims = userClaims;
+        _userClaims = new UserClaimsGetter(httpContextAccessor);
         _context = context;
         _ID = _userClaims.GetClaims().ID;
     }
@@ -46,7 +50,7 @@ public class ReportsRepository : IReportsRepository
         ts.AttendanceList = await ProcessAttendance(attList);
 
         return ts;
-        
+
 
     }
 
@@ -61,15 +65,15 @@ public class ReportsRepository : IReportsRepository
             var attList = await GetTimesheet(request.DateFrom.GetValueOrDefault(), request.DateTo.GetValueOrDefault());
 
             response.AttendanceList = await ProcessAttendance(attList);
-          
+
             return response;
         }
-        catch (Exception ex)   
+        catch (Exception ex)
         {
             return new TimeSheetDTO();
         }
-        
-     
+
+
     }
 
     public async Task<List<AttendanceDTO>> GetTimesheet(DateTime dateFrom, DateTime dateTo)
@@ -119,13 +123,13 @@ public class ReportsRepository : IReportsRepository
         }
         catch (Exception e)
         {
-            return new List<AttendanceDTO> { new AttendanceDTO() }; 
+            return new List<AttendanceDTO> { new AttendanceDTO() };
         }
 
-      
+
     }
 
-    public async Task <List<AttendanceDTO>> ProcessAttendance(List<AttendanceDTO> attList)
+    public async Task<List<AttendanceDTO>> ProcessAttendance(List<AttendanceDTO> attList)
     {
         List<AttendanceDTO> attendanceDTOList = new List<AttendanceDTO>();
 
@@ -198,115 +202,107 @@ public class ReportsRepository : IReportsRepository
         return day;
     }
 
-    public async Task<List<FSLogsDTO>>FScanLogs()
+    public async Task<PagedResult<FSLogsDTO>> FScanLogsAsync(string? key, int currentPage, int pageSize)
     {
-        var usercode = _ID;
-        var logsList = await (from A in _context.NGAC_USERINFO
-                              join B in _context.NGAC_GROUP on A.GroupID equals B.ID into grouptb
-                              from grp in grouptb.DefaultIfEmpty()
-                              where A.Name != "admin"
-                              select new FSLogsDTO
-                              {
-                                  IndexKey = A.IndexKey,
-                                  ID = A.ID,
-                                  Name = A.Name ?? "",
-                                  GroupName = grp.Name,
-                                  AccessType = A.AccessType ?? ""
-                              }).ToListAsync();
+        try
+        {
 
-        return logsList;
+            var usercode = _ID;
+            var query = from A in _context.NGAC_USERINFO
+                        join B in _context.NGAC_GROUP on A.GroupID equals B.ID into grouptb
+                        from grp in grouptb.DefaultIfEmpty()
+                        where A.Name != "admin"
+                        select new FSLogsDTO
+                        {
+                            IndexKey = A.IndexKey,
+                            ID = A.ID,
+                            Name = A.Name ?? "",
+                            GroupName = grp.Name,
+                            AccessType = A.AccessType ?? ""
+                        };
 
+
+
+            if (!string.IsNullOrEmpty(key))
+            {
+                var trimmedKey = key.Trim();
+                query = query.Where(x => x.IndexKey.ToString().Contains(trimmedKey) ||
+                                         x.ID.Contains(trimmedKey) ||
+                                         x.Name.Contains(trimmedKey) ||
+                                         x.GroupName.Contains(trimmedKey) ||
+                                         x.AccessType.Contains(trimmedKey) ||
+                                         x.GroupName.Contains(trimmedKey)
+
+                                         );
+            }
+
+            var count = await query.CountAsync();
+            var totalPages = (int)Math.Ceiling((double)count / pageSize);
+
+            var items = await query.OrderBy(x => x.IndexKey)
+                                   .Skip((currentPage - 1) * pageSize)
+                                   .Take(pageSize)
+                                   .ToListAsync();
+
+            return new PagedResult<FSLogsDTO>
+            {
+                Items = items,
+                TotalPages = totalPages,
+                TotalCount = count
+            };
+        }
+        catch (Exception ex)
+        {
+            throw new ApplicationException("An error occurred while fetching paged results", ex);
+        }
     }
 
-    public async Task<FSLogsDetailsResponse> FScanLogsDetails(string EmployeeId, DateTime DateFrom, DateTime DateTo, [Bind("DateFrom, DateTo")] FSLogsDetailsDTO sheet, bool set)
+    public async Task<FSLogsDetailsResponse> FScanLogsDetailsAsync(FSLogDetailsRequest request)
     {
-        FSLogsDetailsResponse response = new();
-
-        if (DateFrom.ToString("yyyy") == "0001" || DateTo.ToString("yyyy") == "0001")
+        try
         {
-            DateFrom = DateTime.Now;
-            DateTo = DateTime.Now;
-        }
+            //FSLogsDetailsDTO Sheet = new();
+            FSLogsDetailsResponse response = new();
 
-        string USERIDINDEX = "";
+            if (request.DateFrom.GetValueOrDefault().ToString("yyyy") == "0001" || request.DateTo.GetValueOrDefault().ToString("yyyy") == "0001")
+            {
+                request.DateFrom = DateTime.Now;
+                request.DateTo = DateTime.Now;
+            }
 
-        var dft = string.Empty;
-        var Logs = new List<FSLogsDetailsDTO>();
-        DateTime date = DateTime.Now;
-        var firstDayOfMonth = new DateTime(date.Year, date.Month, 1);
-        var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
+            string USERIDINDEX = "";
 
-        sheet.DateFrom = sheet.DateFrom;
-        sheet.DateTo = sheet.DateTo;
-        var result = await (from A in _context.NGAC_USERINFO
-                      join B in _context.NGAC_GROUP on A.GroupID equals B.ID into grouptb
-                      from grp in grouptb.DefaultIfEmpty()
-                      from C in _context.NGAC_AUTHLOG
-                      from D in _context.NGAC_TERMINAL
-                          //where A.GroupID == grp.ID
-                      where C.UserID == A.ID
-                      where D.ID == C.TerminalID
-                      where A.ID == EmployeeId
-                      where C.TransactionTime.Value.DayOfYear >= DateFrom.DayOfYear
-                      where C.TransactionTime.Value.DayOfYear <= DateTo.DayOfYear
+            var dft = string.Empty;
+            var Logs = new List<FSLogsDetailsDTO>();
+            DateTime date = DateTime.Now;
+            var firstDayOfMonth = new DateTime(date.Year, date.Month, 1);
+            var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
 
-                      select new FSLogsDetailsDTO
-                      {
-                          Date = C.TransactionTime,
-                          ID = A.ID,
-                          Name = A.Name,
-                          GroupName = grp.Name,
-                          TerminalName = D.Name,
-                          FunctionKey = C.FunctionKey
-                      }).ToListAsync();
-        foreach (var item in result)
-        {
-            var i = new FSLogsDetailsDTO();
-            i.Date = item.Date;
-            i.ID = item.ID;
-            i.Name = item.Name;
-            i.GroupName = item.GroupName;
-            i.TerminalName = item.TerminalName;
-            i.FunctionKey = item.FunctionKey;
+            //Sheet.DateFrom = request.DateFrom.GetValueOrDefault();
+            //Sheet.DateTo = request.DateTo.GetValueOrDefault();
 
+            var result = await (from A in _context.NGAC_USERINFO
+                                join B in _context.NGAC_GROUP on A.GroupID equals B.ID into grouptb
+                                from grp in grouptb.DefaultIfEmpty()
+                                from C in _context.NGAC_AUTHLOG
+                                from D in _context.NGAC_TERMINAL
+                                    //where A.GroupID == grp.ID
+                                where C.UserID == A.ID
+                                where D.ID == C.TerminalID
+                                where A.ID == request.ID
+                                where C.TransactionTime.Value.DayOfYear >= request.DateFrom.GetValueOrDefault().DayOfYear
+                                where C.TransactionTime.Value.DayOfYear <= request.DateTo.GetValueOrDefault().DayOfYear
 
-            response.DetailsName = item.Name;
-            response.DateFrom = DateFrom.ToString("MM/dd/yyyy");
-            response.DateTo = DateTo.ToString("MM/dd/yyyy");
-            response.DetailsId = item.ID;
-            response.GroupName = item.GroupName;
-            USERIDINDEX = item.ID;
-
-            //string test = ViewData["DateFrom"].ToString();
-
-
-
-            Logs.Add(i);
-        }
-
-        if (result.Count() == 0)
-        {
-
-            var result2 = (from A in _context.NGAC_USERINFO
-                           join B in _context.NGAC_GROUP on A.GroupID equals B.ID into grouptb
-                           from grp in grouptb.DefaultIfEmpty()
-                           from C in _context.NGAC_AUTHLOG
-                           from D in _context.NGAC_TERMINAL
-                               //where A.GroupID == grp.ID
-                           where C.UserID == A.ID
-                           where D.ID == C.TerminalID
-                           where A.ID == EmployeeId
-
-                           select new FSLogsDetailsDTO
-                           {
-                               Date = C.TransactionTime,
-                               ID = A.ID,
-                               Name = A.Name,
-                               GroupName = grp.Name,
-                               TerminalName = D.Name,
-                               FunctionKey = C.FunctionKey
-                           });
-            foreach (var item in result2)
+                                select new FSLogsDetailsDTO
+                                {
+                                    Date = C.TransactionTime,
+                                    ID = A.ID,
+                                    Name = A.Name,
+                                    GroupName = grp.Name,
+                                    TerminalName = D.Name,
+                                    FunctionKey = C.FunctionKey
+                                }).ToListAsync();
+            foreach (var item in result)
             {
                 var i = new FSLogsDetailsDTO();
                 i.Date = item.Date;
@@ -315,51 +311,186 @@ public class ReportsRepository : IReportsRepository
                 i.GroupName = item.GroupName;
                 i.TerminalName = item.TerminalName;
                 i.FunctionKey = item.FunctionKey;
+
+
                 response.DetailsName = item.Name;
-                response.DateFrom = DateFrom.ToString("MM/dd/yyyy");
-                response.DateTo = DateTo.ToString("MM/dd/yyyy");
+                response.DateFrom = request.DateFrom;
+                response.DateTo = request.DateTo;
                 response.DetailsId = item.ID;
                 response.GroupName = item.GroupName;
                 USERIDINDEX = item.ID;
+
+                //string test = ViewData["DateFrom"].ToString();
 
 
 
                 Logs.Add(i);
             }
-
-            if (set)
+            //response.GetLogsList = Logs;
+            if (result.Count() == 0)
             {
-                response.GetLogs = dft;
-                response.DateFrom = DateFrom.ToString("MM/dd/yyyy");
-                response.DateTo = DateTo.ToString("MM/dd/yyyy");
+
+                var result2 = await (from A in _context.NGAC_USERINFO
+                                     join B in _context.NGAC_GROUP on A.GroupID equals B.ID into grouptb
+                                     from grp in grouptb.DefaultIfEmpty()
+                                     from C in _context.NGAC_AUTHLOG
+                                     from D in _context.NGAC_TERMINAL
+                                         //where A.GroupID == grp.ID
+                                     where C.UserID == A.ID
+                                     where D.ID == C.TerminalID
+                                     where A.ID == request.ID
+
+                                     select new FSLogsDetailsDTO
+                                     {
+                                         Date = C.TransactionTime,
+                                         ID = A.ID,
+                                         Name = A.Name,
+                                         GroupName = grp.Name,
+                                         TerminalName = D.Name,
+                                         FunctionKey = C.FunctionKey
+                                     }).ToListAsync();
+
+                foreach (var item in result2)
+                {
+                    var i = new FSLogsDetailsDTO();
+                    i.Date = item.Date;
+                    i.ID = item.ID;
+                    i.Name = item.Name;
+                    i.GroupName = item.GroupName;
+                    i.TerminalName = item.TerminalName;
+                    i.FunctionKey = item.FunctionKey;
+                    response.DetailsName = item.Name;
+                    response.DateFrom = request.DateFrom;
+                    response.DateTo = request.DateTo;
+                    response.DetailsId = item.ID;
+                    response.GroupName = item.GroupName;
+                    USERIDINDEX = item.ID;
+
+
+
+                    Logs.Add(i);
+                }
+
+                if (request.Set)
+                {
+                    response.GetLogs = dft;
+                    response.DateFrom = request.DateFrom;
+                    response.DateTo = request.DateTo;
+
+                }
+                else
+                {
+                    response.GetLogs = dft;
+                    response.DateFrom = firstDayOfMonth;
+                    response.DateTo = lastDayOfMonth;
+                }
+
 
             }
             else
             {
-                response.GetLogs = dft;
-                response.DateFrom = firstDayOfMonth.ToShortDateString();
-                response.DateTo = lastDayOfMonth.ToShortDateString();
+                if (request.Set)
+                {
+                    response.GetLogsList = Logs;
+                }
+                else
+                {
+                    response.GetLogs = dft;
+                    response.DateFrom = firstDayOfMonth;
+                    response.DateTo = lastDayOfMonth;
+                }
             }
 
-
+            return response;
         }
-        else
+        catch (Exception ex)
         {
-            if (set)
-            {
-                response.GetLogsList = result;
-            }
-            else
-            {
-                response.GetLogs = dft;
-                response.DateFrom = firstDayOfMonth.ToShortDateString();
-               response.DateTo = lastDayOfMonth.ToShortDateString();
-            }
+            return new FSLogsDetailsResponse();
         }
-
-        return response;
     }
 
+
+    //public async Task<FSLogsDetailsResponse> FScanLogsDetailsAsync(FSLogDetailsRequest request)
+    //{
+    //    FSLogsDetailsResponse response = new();
+    //    List<FSLogsDetailsDTO> logs = new();
+
+    //    try
+    //    {
+    //        // Adjust the dates if not provided
+    //        if (!request.DateFrom.HasValue || request.DateFrom.Value.Year == 1)
+    //        {
+    //            request.DateFrom = DateTime.Now;
+    //        }
+
+    //        if (!request.DateTo.HasValue || request.DateTo.Value.Year == 1)
+    //        {
+    //            request.DateTo = DateTime.Now;
+    //        }
+
+    //        DateTime dateFrom = request.DateFrom.Value;
+    //        DateTime dateTo = request.DateTo.Value;
+
+    //        var query = from A in _context.NGAC_USERINFO
+    //                    join B in _context.NGAC_GROUP on A.GroupID equals B.ID into grouptb
+    //                    from grp in grouptb.DefaultIfEmpty()
+    //                    join C in _context.NGAC_AUTHLOG on A.ID equals C.UserID
+    //                    join D in _context.NGAC_TERMINAL on C.TerminalID equals D.ID
+    //                    where A.ID == request.ID && A.Name != "admin"
+    //                    select new FSLogsDetailsDTO
+    //                    {
+    //                        Date = C.TransactionTime,
+    //                        ID = A.ID,
+    //                        Name = A.Name,
+    //                        GroupName = grp.Name,
+    //                        TerminalName = D.Name,
+    //                        FunctionKey = C.FunctionKey
+    //                    };
+
+    //        // Apply date filtering if date range is set
+    //        if (dateFrom.Year != 1 && dateTo.Year != 1)
+    //        {
+    //            query = query.Where(x => x.Date >= dateFrom && x.Date <= dateTo);
+    //        }
+
+    //        var result = await query.ToListAsync();
+
+    //        if (result.Any())
+    //        {
+    //            logs.AddRange(result);
+    //            response.GetLogsList = result;
+    //            response.DateFrom = request.Set ? dateFrom : new DateTime(dateFrom.Year, dateFrom.Month, 1);
+    //            response.DateTo = request.Set ? dateTo : response.DateFrom.GetValueOrDefault().AddMonths(1).AddDays(-1);
+
+    //            var firstResult = result.First();
+    //            response.DetailsName = firstResult.Name;
+    //            response.DetailsId = firstResult.ID;
+    //            response.GroupName = firstResult.GroupName;
+    //        }
+    //        else
+    //        {
+    //            logs.AddRange(result);
+    //            response.GetLogsList = result;
+    //            response.DateFrom = request.Set ? dateFrom : new DateTime(dateFrom.Year, dateFrom.Month, 1);
+    //            response.DateTo = request.Set ? dateTo : response.DateFrom.GetValueOrDefault().AddMonths(1).AddDays(-1);
+    //            var firstResult = result.First();
+    //            response.DetailsName = firstResult.Name;
+    //            response.DetailsId = firstResult.ID;
+    //            response.GroupName = firstResult.GroupName;
+    //            response.GetLogs = "No data available in the selected date range.";
+    //            response.DateFrom = request.Set ? dateFrom : new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+    //            response.DateTo = request.Set ? dateTo : response.DateFrom.GetValueOrDefault().AddMonths(1).AddDays(-1);
+    //        }
+
+    //        return response;
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //        // Log the exception
+    //        Console.WriteLine($"Exception in FScanLogsDetailsAsync: {ex.Message}");
+    //        return new FSLogsDetailsResponse();
+    //    }
+    //}
 
     private List<FSLogsDetailsDTO> Logdetails(List<FSLogsDetailsDTO> attList)
     {

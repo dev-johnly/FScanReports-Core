@@ -1,0 +1,180 @@
+﻿@page "/FScanLogsDetails/{ID}"
+@using FScan.Reports.Application.Models.Responses
+@using System.IdentityModel.Tokens.Jwt
+@using Blazored.LocalStorage
+@using FScanReports.Client.States
+@using System.Net.Http.Headers
+@using System.Security.Claims
+
+
+<div class="nk-block">
+    <div class="row g-gs">
+        <div class="col-lg-12">
+            <div class="card card-bordered card-full">
+                <div class="card-inner">
+                    <div class="card-head">
+                        <h5 class="card-title">FScan Logs Details</h5>
+                    </div>
+                    <EditForm Model="@response" OnValidSubmit="HandleValidSubmit">
+                        <DataAnnotationsValidator />
+
+                        <div class="row g-4">
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="form-label">Name</label>
+                                    <InputText @bind-Value="@response.DetailsName" class="form-control" disabled />
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="form-label">ID</label>
+                                    <InputText @bind-Value="@response.DetailsId" class="form-control" disabled />
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="form-label">Group Name</label>
+                                    <InputText @bind-Value="@response.GroupName" class="form-control" disabled />
+                                </div>
+                            </div>
+                            <div class="col-lg-8">
+
+                                <div class="form-group">
+                                    <div class="form-control-wrap">
+                                        <div class="input-daterange date-picker-range input-group">
+                                            <InputDate @bind-Value="@response.DateFrom" class="form-control" />
+
+                                            <div class="input-group-addon">TO</div>
+                                            <InputDate @bind-Value="@response.DateTo" class="form-control" />
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <div class="btn-group">
+                                    <button class="btn btn-primary" typeof="submit">Submit</button>
+                                    @if (Role != "User")
+                                    {
+                                        <button @onclick="BackToListAsync" class="btn btn-outline-secondary">Back to list</button>
+                                    }
+                                    </div>
+                                </div>
+                               
+                            </div>
+
+                        </div>
+                    </EditForm>
+
+                </div>
+                <div class="card-inner">
+
+                    <table class="table table-bordered table-striped table-hover">
+                        <thead>
+                            <tr class="text-center">
+                                <th>Date & Time </th>
+                                <th>Terminal</th>
+                                <th>Function Key</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (response.GetLogsList != null)
+                            {
+                                @foreach (var item in response.GetLogsList)
+                                {
+
+                                    <tr class="text-center">
+                                        <td>
+                                            @item.Date
+                                        </td>
+                                        <td>
+                                            @item.TerminalName
+                                        </td>
+                                        <td>
+                                            @item.FunctionKey
+                                        </td>
+
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                <tr class="text-center">
+                                    <td colspan="3">No data available in table</td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    [Parameter]
+    public string? ID { get; set; }
+
+    public DateTime DateNow = DateTime.Now;
+    public FSLogsDetailsResponse response = new();
+    public FSLogDetailsRequest request = new();
+    private string? Role;
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        try
+        {
+            request.ID = ID;
+            request.DateFrom = DateNow;
+            request.DateTo = DateNow;
+            request.Set = false;
+            response = await ReportsService.FScanLogsDetailsAsync(request);
+            if (response.DetailsName == null)
+            {
+                toastService.ShowError("no logs to be displayed");
+            }
+
+        }
+        catch (Exception ex)
+        {
+            toastService.ShowError(ex.Message);
+            // Message = $"Error loading ATC: {ex.Message}";
+        }
+
+        var token = await localStorageService.GetItemAsStringAsync("auth");
+
+        if (!string.IsNullOrEmpty(token))
+        {
+            var handler = new JwtSecurityTokenHandler();
+            var jwtToken = handler.ReadJwtToken(token);
+
+            Role = jwtToken.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value ?? string.Empty;
+            Http.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+        }
+
+    }
+
+    public async Task HandleValidSubmit()
+    {
+        await SubmitDetailsAsync();
+    }
+
+    public async Task SubmitDetailsAsync()
+    {
+        request.ID = ID;
+        request.DateFrom = response.DateFrom;
+        request.DateTo = response.DateTo;
+        request.Set = true;
+        response = await ReportsService.FScanLogsDetailsAsync(request);
+    }
+
+    public async Task BackToListAsync()
+    {
+        Navigation.NavigateTo("/FingerPrintScanLogs");
+    }
+}

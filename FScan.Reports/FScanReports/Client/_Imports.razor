@@ -16,11 +16,15 @@
 @using Blazored.Toast.Configuration;
 @using FScanReports.Client.States
 @using FScan.Reports.Application.Models.DTOs
+@using FScan.Reports.Application.Models.Requests
+@using FScanReports.Client.Pages.PageHelpers
+
 @* 
 @using static System.Net.WebRequestMethods *@
 @inject IToastService toastService
 @inject HttpClient Http
 
+@inject IUserService UserService
 @inject IAuthenticationService AuthenticationService
 @inject IReportsService ReportsService
 

@@ -18,8 +18,10 @@ builder.Services.AddHttpClient("FScanReports.ServerAPI", client => client.BaseAd
 // Supply HttpClient instances that include access tokens when making requests to the server project
 builder.Services.AddScoped(sp => sp.GetRequiredService<IHttpClientFactory>().CreateClient("FScanReports.ServerAPI"));
 
+builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
 builder.Services.AddScoped<IReportsService, ReportsService>();
+
 
 builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
 

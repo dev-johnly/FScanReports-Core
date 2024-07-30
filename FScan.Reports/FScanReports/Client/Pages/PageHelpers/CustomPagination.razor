@@ -1,0 +1,133 @@
+﻿ @typeparam TItem
+
+@if (TotalPages > 1)
+{
+    <div class="custom-pagination" style="cursor:pointer">
+        <div class="pagination justify-content-end">
+            <div class="page-item @(IsFirstPage ? "disabled" : "")">
+                <div class="page-link" @onclick="GoToFirstPage">First</div>
+            </div>
+            <div class="page-item @(IsFirstPage ? "disabled" : "")">
+                <div class="page-link" @onclick="PreviousPage">Prev</div>
+            </div>
+
+            @if (TotalPages <= 5)
+            {
+                @for (int i = 1; i <= TotalPages; i++)
+                {
+                    var pageIndex = i;  // Capture the loop variable
+                    <div class="page-item @(pageIndex == CurrentPage ? "active" : "")">
+                        <div class="page-link" @onclick="() => GoToPage(pageIndex)">@pageIndex</div>
+                    </div>
+                }
+            }
+            else
+            {
+                var startPage = Math.Max(1, CurrentPage - 2);
+                var endPage = Math.Min(TotalPages, startPage + 4);
+                if (endPage - startPage < 4)
+                {
+                    startPage = Math.Max(1, endPage - 4);
+                }
+
+                if (startPage > 1)
+                {
+                    <div class="page-item">
+                        <div class="page-link">...</div>
+                    </div>
+                }
+
+                @for (int i = startPage; i <= endPage; i++)
+                {
+                    var pageIndex = i;  // Capture the loop variable
+                    <div class="page-item @(pageIndex == CurrentPage ? "active" : "")">
+                        <div class="page-link" @onclick="() => GoToPage(pageIndex)">@pageIndex</div>
+                    </div>
+                }
+
+                if (endPage < TotalPages)
+                {
+                    <div class="page-item">
+                        <div class="page-link">...</div>
+                    </div>
+                    <div class="page-item @(TotalPages == CurrentPage ? "active" : "")">
+                        <div class="page-link" @onclick="() => GoToPage(TotalPages)">@TotalPages</div>
+                    </div>
+                }
+            }
+
+            <div class="page-item @(IsLastPage ? "disabled" : "")">
+                <div class="page-link" @onclick="NextPage">Next</div>
+            </div>
+            <div class="page-item @(IsLastPage ? "disabled" : "")">
+                <div class="page-link" @onclick="GoToLastPage">Last</div>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public int CurrentPage { get; set; }
+
+    [Parameter]
+    public int TotalPages { get; set; }
+
+    [Parameter]
+    public EventCallback<int> PageChanged { get; set; }
+
+    public bool IsFirstPage => CurrentPage == 1;
+    public bool IsLastPage => CurrentPage == TotalPages;
+
+    private async Task GoToFirstPage()
+    {
+        if (!IsFirstPage)
+        {
+            CurrentPage = 1;
+            await PageChanged.InvokeAsync(CurrentPage);
+        }
+    }
+
+    private async Task GoToLastPage()
+    {
+        if (!IsLastPage)
+        {
+            CurrentPage = TotalPages;
+            await PageChanged.InvokeAsync(CurrentPage);
+        }
+    }
+
+    private async Task PreviousPage()
+    {
+        if (!IsFirstPage)
+        {
+            CurrentPage--;
+            await PageChanged.InvokeAsync(CurrentPage);
+        }
+    }
+
+    private async Task NextPage()
+    {
+        if (!IsLastPage)
+        {
+            CurrentPage++;
+            await PageChanged.InvokeAsync(CurrentPage);
+        }
+    }
+
+    private async Task GoToPage(int pageNumber)
+    {
+        Console.WriteLine($"pageNumber: {pageNumber}, CurrentPage: {CurrentPage}, TotalPages: {TotalPages}");
+
+        if (pageNumber >= 1 && pageNumber <= TotalPages && pageNumber != CurrentPage)
+        {
+            Console.WriteLine("Condition met, invoking PageChanged event.");
+            CurrentPage = pageNumber;
+            await PageChanged.InvokeAsync(CurrentPage);
+        }
+        else
+        {
+            Console.WriteLine("Condition not met.");
+        }
+    }
+}

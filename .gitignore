@@ -6,3 +6,5 @@
 /FScan.Reports/FScan.Reports.Infrastructure/bin/Debug/net8.0
 /FScan.Reports/FScanReports/Server/bin/Debug/net8.0
 /FScan.Reports/FScanReports/Client/obj/Debug
+/FScan.Reports/FScan.Reports.Application/obj
+*.cache

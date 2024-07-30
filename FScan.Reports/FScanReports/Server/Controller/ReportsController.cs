@@ -1,8 +1,10 @@
 ﻿using FScan.Reports.Application.Contracts;
 using FScan.Reports.Application.Models.DTOs;
 using FScan.Reports.Application.Models.Requests;
+using FScan.Reports.Application.Models.Responses;
 using FScan.Reports.Application.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using System.Net.Http;
 
 namespace FScanReports.Server.Controller;
 
@@ -33,4 +35,22 @@ public class ReportsController : ControllerBase
         return Ok(result);
 
     }
+
+    [HttpGet("FScanLogs")]
+    public async Task<IActionResult> FScanLogsAsync(string? key, int currentPage, int pageSize)
+    {
+        var result = await _reports.FScanLogsAsync(key, currentPage, pageSize);
+        return Ok(result);
+
+    }
+
+
+    [HttpPost("FScanLogsDetails")]
+    public async Task<IActionResult> FScanLogsDetailsAsync([FromBody] FSLogDetailsRequest request)
+    {
+        var result = await _reports.FScanLogsDetailsAsync(request);
+        return Ok(result);
+
+    }
+
 }

@@ -11,8 +11,8 @@ public class FSLogsDetailsResponse
 {
     public string? DetailsName { get; set; }
 
-    public string? DateFrom { get; set; }
-    public string? DateTo { get; set; }
+    public DateTime? DateFrom { get; set; }
+    public DateTime? DateTo { get; set; }
 
     public string? DetailsId { get; set; }
 
@@ -21,5 +21,5 @@ public class FSLogsDetailsResponse
 
     public string? GetLogs { get; set; }
 
-    public List<FSLogsDetailsDTO> GetLogsList;
+    public List<FSLogsDetailsDTO> GetLogsList { get; set; }
 }

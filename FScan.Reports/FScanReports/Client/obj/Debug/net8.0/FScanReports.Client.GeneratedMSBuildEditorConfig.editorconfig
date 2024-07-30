@@ -13,51 +13,71 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = browser
 build_property.RootNamespace = FScanReports.Client
 build_property.RootNamespace = FScanReports.Client
-build_property.ProjectDir = C:\Users\johnly-oroy\Documents\GitHub\FScanReports-Core\FScan.Reports\FScanReports\Client\
+build_property.ProjectDir = C:\Users\jcoroy\Documents\GitHub\FScanReports-Core\FScan.Reports\FScanReports\Client\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = false
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\johnly-oroy\Documents\GitHub\FScanReports-Core\FScan.Reports\FScanReports\Client
+build_property.MSBuildProjectDirectory = C:\Users\jcoroy\Documents\GitHub\FScanReports-Core\FScan.Reports\FScanReports\Client
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/johnly-oroy/Documents/GitHub/FScanReports-Core/FScan.Reports/FScanReports/Client/App.razor]
+[C:/Users/jcoroy/Documents/GitHub/FScanReports-Core/FScan.Reports/FScanReports/Client/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/johnly-oroy/Documents/GitHub/FScanReports-Core/FScan.Reports/FScanReports/Client/Footer.razor]
+[C:/Users/jcoroy/Documents/GitHub/FScanReports-Core/FScan.Reports/FScanReports/Client/Footer.razor]
 build_metadata.AdditionalFiles.TargetPath = Rm9vdGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/johnly-oroy/Documents/GitHub/FScanReports-Core/FScan.Reports/FScanReports/Client/MainLayout.razor]
+[C:/Users/jcoroy/Documents/GitHub/FScanReports-Core/FScan.Reports/FScanReports/Client/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = TWFpbkxheW91dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/johnly-oroy/Documents/GitHub/FScanReports-Core/FScan.Reports/FScanReports/Client/Pages/Authentication/LoginPage.razor]
+[C:/Users/jcoroy/Documents/GitHub/FScanReports-Core/FScan.Reports/FScanReports/Client/Pages/Authentication/LoginPage.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aGVudGljYXRpb25cTG9naW5QYWdlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/johnly-oroy/Documents/GitHub/FScanReports-Core/FScan.Reports/FScanReports/Client/Pages/Authentication/Logout.razor]
+[C:/Users/jcoroy/Documents/GitHub/FScanReports-Core/FScan.Reports/FScanReports/Client/Pages/Authentication/Logout.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aGVudGljYXRpb25cTG9nb3V0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/johnly-oroy/Documents/GitHub/FScanReports-Core/FScan.Reports/FScanReports/Client/Pages/Index.razor]
+[C:/Users/jcoroy/Documents/GitHub/FScanReports-Core/FScan.Reports/FScanReports/Client/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/johnly-oroy/Documents/GitHub/FScanReports-Core/FScan.Reports/FScanReports/Client/Pages/Reports/AttendanceReport.razor]
+[C:/Users/jcoroy/Documents/GitHub/FScanReports-Core/FScan.Reports/FScanReports/Client/Pages/PageHelpers/CustomPagination.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFnZUhlbHBlcnNcQ3VzdG9tUGFnaW5hdGlvbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jcoroy/Documents/GitHub/FScanReports-Core/FScan.Reports/FScanReports/Client/Pages/Reports/AttendanceReport.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVwb3J0c1xBdHRlbmRhbmNlUmVwb3J0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/johnly-oroy/Documents/GitHub/FScanReports-Core/FScan.Reports/FScanReports/Client/Pages/Reports/FingerPrintScanLogs.razor]
+[C:/Users/jcoroy/Documents/GitHub/FScanReports-Core/FScan.Reports/FScanReports/Client/Pages/Reports/FingerPrintScanLogs.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVwb3J0c1xGaW5nZXJQcmludFNjYW5Mb2dzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/johnly-oroy/Documents/GitHub/FScanReports-Core/FScan.Reports/FScanReports/Client/Sidebar.razor]
+[C:/Users/jcoroy/Documents/GitHub/FScanReports-Core/FScan.Reports/FScanReports/Client/Pages/Reports/FScanLogsDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVwb3J0c1xGU2NhbkxvZ3NEZXRhaWxzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jcoroy/Documents/GitHub/FScanReports-Core/FScan.Reports/FScanReports/Client/Pages/Users/ChangePassword.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlcnNcQ2hhbmdlUGFzc3dvcmQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jcoroy/Documents/GitHub/FScanReports-Core/FScan.Reports/FScanReports/Client/Pages/Users/ResetPassword.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlcnNcUmVzZXRQYXNzd29yZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jcoroy/Documents/GitHub/FScanReports-Core/FScan.Reports/FScanReports/Client/Pages/Users/ResetPasswordDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlcnNcUmVzZXRQYXNzd29yZERldGFpbHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jcoroy/Documents/GitHub/FScanReports-Core/FScan.Reports/FScanReports/Client/Sidebar.razor]
 build_metadata.AdditionalFiles.TargetPath = U2lkZWJhci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/johnly-oroy/Documents/GitHub/FScanReports-Core/FScan.Reports/FScanReports/Client/_Imports.razor]
+[C:/Users/jcoroy/Documents/GitHub/FScanReports-Core/FScan.Reports/FScanReports/Client/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 

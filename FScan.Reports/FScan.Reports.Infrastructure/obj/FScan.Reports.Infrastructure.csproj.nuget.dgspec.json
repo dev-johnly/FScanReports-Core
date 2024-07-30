@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\johnly-oroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScan.Reports.Infrastructure\\FScan.Reports.Infrastructure.csproj": {}
+    "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScan.Reports.Infrastructure\\FScan.Reports.Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\johnly-oroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\Domain\\FScan.Reports.Domain.csproj": {
+    "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\Domain\\FScan.Reports.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\johnly-oroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\Domain\\FScan.Reports.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\Domain\\FScan.Reports.Domain.csproj",
         "projectName": "FScan.Reports.Domain",
-        "projectPath": "C:\\Users\\johnly-oroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\Domain\\FScan.Reports.Domain.csproj",
-        "packagesPath": "C:\\Users\\johnly-oroy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\johnly-oroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\Domain\\obj\\",
+        "projectPath": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\Domain\\FScan.Reports.Domain.csproj",
+        "packagesPath": "C:\\Users\\jcoroy\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\Domain\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\johnly-oroy\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\jcoroy\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -75,21 +71,17 @@
         }
       }
     },
-    "C:\\Users\\johnly-oroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScan.Reports.Application\\FScan.Reports.Application.csproj": {
+    "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScan.Reports.Application\\FScan.Reports.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\johnly-oroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScan.Reports.Application\\FScan.Reports.Application.csproj",
+        "projectUniqueName": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScan.Reports.Application\\FScan.Reports.Application.csproj",
         "projectName": "FScan.Reports.Application",
-        "projectPath": "C:\\Users\\johnly-oroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScan.Reports.Application\\FScan.Reports.Application.csproj",
-        "packagesPath": "C:\\Users\\johnly-oroy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\johnly-oroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScan.Reports.Application\\obj\\",
+        "projectPath": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScan.Reports.Application\\FScan.Reports.Application.csproj",
+        "packagesPath": "C:\\Users\\jcoroy\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScan.Reports.Application\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\johnly-oroy\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\jcoroy\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -104,8 +96,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\johnly-oroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\Domain\\FScan.Reports.Domain.csproj": {
-                "projectPath": "C:\\Users\\johnly-oroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\Domain\\FScan.Reports.Domain.csproj"
+              "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\Domain\\FScan.Reports.Domain.csproj": {
+                "projectPath": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\Domain\\FScan.Reports.Domain.csproj"
               }
             }
           }
@@ -158,21 +150,17 @@
         }
       }
     },
-    "C:\\Users\\johnly-oroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScan.Reports.Infrastructure\\FScan.Reports.Infrastructure.csproj": {
+    "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScan.Reports.Infrastructure\\FScan.Reports.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\johnly-oroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScan.Reports.Infrastructure\\FScan.Reports.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScan.Reports.Infrastructure\\FScan.Reports.Infrastructure.csproj",
         "projectName": "FScan.Reports.Infrastructure",
-        "projectPath": "C:\\Users\\johnly-oroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScan.Reports.Infrastructure\\FScan.Reports.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\johnly-oroy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\johnly-oroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScan.Reports.Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScan.Reports.Infrastructure\\FScan.Reports.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\jcoroy\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScan.Reports.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\johnly-oroy\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\jcoroy\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -187,11 +175,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\johnly-oroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\Domain\\FScan.Reports.Domain.csproj": {
-                "projectPath": "C:\\Users\\johnly-oroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\Domain\\FScan.Reports.Domain.csproj"
+              "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\Domain\\FScan.Reports.Domain.csproj": {
+                "projectPath": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\Domain\\FScan.Reports.Domain.csproj"
               },
-              "C:\\Users\\johnly-oroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScan.Reports.Application\\FScan.Reports.Application.csproj": {
-                "projectPath": "C:\\Users\\johnly-oroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScan.Reports.Application\\FScan.Reports.Application.csproj"
+              "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScan.Reports.Application\\FScan.Reports.Application.csproj": {
+                "projectPath": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScan.Reports.Application\\FScan.Reports.Application.csproj"
               }
             }
           }
