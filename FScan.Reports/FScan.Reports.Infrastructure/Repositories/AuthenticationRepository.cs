@@ -43,24 +43,15 @@ public class AuthenticationRepository : GenericRepository<NGAC_USERINFO>, IAuthe
         try
         {
             var user = await _context.NGAC_USERINFO
-                                    .Where(s => s.ID.Trim() == vm.Usercode.Trim())
-                                    .FirstOrDefaultAsync();
+                                     .FirstOrDefaultAsync(s => s.ID.Trim() == vm.Usercode.Trim());
 
             if (user == null)
             {
-                response.Success = false;
-                response.Message = "User not found, sorry";
-                return response;
-            }
-
-            string decryptedPassword = Encryptor.Decrypt(user.FSPassword);
-
-            if (vm.Password == "Defaul32#$%!" && decryptedPassword == "Defaul32#$%!")
-            {
-                response.FirstLogin = true;
-                response.UserCode = vm.Usercode;
-                return response;
-                //redirect to changepassword page here
+                return new AuthResponse
+                {
+                    Success = false,
+                    Message = "Invalid Username or password"
+                };
             }
 
             if (user.AccessType == null)
@@ -69,42 +60,93 @@ public class AuthenticationRepository : GenericRepository<NGAC_USERINFO>, IAuthe
                 await _context.SaveChangesAsync();
             }
 
-            if (decryptedPassword.Equals(vm.Password))
+            string decryptedPassword = Encryptor.Decrypt(user.FSPassword);
+            bool isFirstLogin = vm.Password == "Defaul32#$%!" && decryptedPassword == "Defaul32#$%!";
+            bool isAuthenticated = decryptedPassword.Equals(vm.Password);
+          
+            if (string.IsNullOrEmpty(user.BankcomEmail))
             {
-                response.FirstLogin = false;
-                response.Success = true;
-                response.Message = "Login Successfully";
-                response.Token = GenerateJWTToken(user);
-                //response.Principal = AuthenticateUser(user); // Add ClaimsPrincipal to response
+                return new AuthResponse
+                {
+                    UserCode = vm.Usercode,
+                    NoEmail = true,
+                    Success = true
+                };
+            }
+
+            if (isFirstLogin)
+            {
+                return new AuthResponse
+                {
+                    FirstLogin = true,
+                    UserCode = vm.Usercode,
+                    Success = true
+                };
+            }
+
+            if (isAuthenticated)
+            {
+                if (user.MustChangePW)
+                {
+                    return new AuthResponse
+                    {
+                        IsPasswordMustChange = true,
+                        UserCode = vm.Usercode,
+                        Success = true
+                    };
+                }
+                else {
+                    return new AuthResponse
+                    {
+                        IsAuthenticated = true,
+                        FirstLogin = false,
+                        Success = true,
+                        Message = "Login Successfully",
+                        Token = GenerateJWTToken(user)
+                    };
+                }
+               
             }
             else
             {
-                response.FirstLogin = false;
-                response.Success = false;
-                response.Message = "Invalid username or password";
+                return new AuthResponse
+                {
+                    FirstLogin = false,
+                    Success = false,
+                    Message = "Invalid username or password"
+                };
             }
-
-            return response;
+            
         }
-        catch (Exception e)
+        catch (Exception)
         {
-            response.Success = false;
-            response.Message = "An error occurred during login.";
-            return response;
+            return new AuthResponse
+            {
+                Success = false,
+                Message = "An error occurred during login."
+            };
         }
     }
+
 
     private string GenerateJWTToken(NGAC_USERINFO user)
     {
         var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]!));
         var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
-        var userClaims = new[]
+
+        var userClaims = new List<Claim>
         {
         new Claim(ClaimTypes.NameIdentifier, user.ID),
         new Claim(ClaimTypes.Name, user.Name!),
         new Claim(ClaimTypes.Role, user.AccessType!),
         new Claim(ClaimTypes.Email, user.BankcomEmail!)
+
     };
+        //if (!string.IsNullOrEmpty(user.BankcomEmail))
+        //{
+        //    userClaims.Add(new Claim(ClaimTypes.Email, user.BankcomEmail));
+        //}
+
         var token = new JwtSecurityToken(
             issuer: _configuration["Jwt:Issuer"],
             audience: _configuration["Jwt:Audience"],

@@ -38,7 +38,7 @@
                 <div class="form-group">
                     <div class="form-label-group">
                         <label class="form-label" >Password</label>
-                        
+                        <a class="link link-primary link-sm" tabindex="-1" href="javascript:void(0)" @onclick="ForgotPasswordAsync">Forgot Password?</a>
                     </div>
                     <div class="form-control-wrap">
                         <InputText @bind-Value="loginVM.Password" Label="Password" Type="password" class="form-control mb-3" />
@@ -67,14 +67,38 @@
         var response = await AuthenticationService.LoginAsync(loginVM);
         if (response.Success)
         {
-           Message = response.Message;
-            var customAuthStateProvider = (CustomAuthenticationStateProvider)AuthStateProvider;
-            await customAuthStateProvider.UpdateAuthenticationState(response.Token);
-            Navigation.NavigateTo("/", forceLoad: true);
+            if (response.IsPasswordMustChange)
+            {
+                Message = response.Message;
+                Navigation.NavigateTo($"/FChangePassword/{response.UserCode}");
+            }
+            if (response.FirstLogin)
+            {
+                Message = response.Message;
+                Navigation.NavigateTo($"/FChangePassword/{response.UserCode}");
+            }
+            if (response.IsAuthenticated)
+            {
+                Message = response.Message;
+                var customAuthStateProvider = (CustomAuthenticationStateProvider)AuthStateProvider;
+                await customAuthStateProvider.UpdateAuthenticationState(response.Token);
+                Navigation.NavigateTo("/", forceLoad: true);
+            }
+            if (response.NoEmail)
+            {
+                Navigation.NavigateTo($"/EmailRegistration/{response.UserCode}");
+            }
+
         }
         else
         {
             Message = response.Message;
         }
     }
+
+    public async Task ForgotPasswordAsync()
+    {
+        Navigation.NavigateTo("/ForgotPassword");
+    }
+
 }

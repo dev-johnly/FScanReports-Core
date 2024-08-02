@@ -1,10 +1,56 @@
+# Ignore Visual Studio temporary files, build results, and
+# any other files or directories that should not be checked into source control.
 
+# Visual Studio directories
+.vs/
+.vscode/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# User-specific files (Mono auto generated)
+mono_crash.*
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+
+# Uncomment if you have tasks that create the project's static files
+# (files that are not source code) under a 'wwwroot' directory
+# wwwroot/
+
+# Logs
+*.log
+
+# Crash reports
+*.dmp
+
+# Include the existing paths you want to ignore
 /FScan.Reports/FScanReports/Client/obj
 /FScan.Reports/FScanReports/Server/obj
 /FScan.Reports/FScanReports/Server/obj/Debug/net8.0
 /FScan.Reports/FScan.Reports.Infrastructure/bin/Debug/net8.0
-/FScan.Reports/FScan.Reports.Infrastructure/bin/Debug/net8.0
 /FScan.Reports/FScanReports/Server/bin/Debug/net8.0
 /FScan.Reports/FScanReports/Client/obj/Debug
 /FScan.Reports/FScan.Reports.Application/obj
+/FScan.Reports/FScanReports/Client/obj/Debug/net8.0
+/FScan.Reports/FScanReports/Server/TimesheetDump
+
+# Ignore cache files
 *.cache
+
+# Ignore PDF files
+*.pdf

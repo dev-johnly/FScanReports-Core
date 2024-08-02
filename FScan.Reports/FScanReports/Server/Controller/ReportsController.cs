@@ -53,4 +53,12 @@ public class ReportsController : ControllerBase
 
     }
 
+    [HttpPost("ExportToPDF")]
+    public async Task<IActionResult> ExportToPDF([FromBody] PdfRequest sheet)
+    {
+        var result = await _reports.ExportToPDF(sheet);
+        return Ok(result);
+
+    }
+
 }

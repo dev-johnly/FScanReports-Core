@@ -1,0 +1,77 @@
+﻿@page "/EmailRegistration/{Usercode}"
+
+<div class="nk-block-head nk-block-head-sm">
+    <div class="nk-block-between">
+    </div>
+</div>
+<div class="nk-block">
+    <div class="row g-gs">
+        <div class="col-lg-6 offset-3">
+            <div class="card card-bordered card-full">
+                <div class="card-inner">
+                    <div class="card-head">
+                        <h5 class="card-title">Email Registration</h5>
+                    </div>
+
+                    <div class="form-group">
+                        <p class="alert alert-success" id="successMessage">Note: This email registration will be used for your reset password verification in the future.</p>
+                    </div>
+                    @if (!string.IsNullOrWhiteSpace(Message))
+                    {
+                        <div class="alert alert-danger mb-3">@Message</div>
+                    }
+                    <EditForm Model="@model" OnValidSubmit="RegisterEmailAsync">
+                        <DataAnnotationsValidator />
+
+                        <div class="row g-4">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label class="form-label">Email</label>
+                                    <InputText type="email" @bind-Value="model.Email" class="form-control" />
+                                    <ValidationMessage For="@(() => model.Email)" />
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label class="form-label">Confirm Email</label>
+                                    <InputText type="email" @bind-Value="model.ConfirmEmail" class="form-control" />
+                                    <ValidationMessage For="@(() => model.ConfirmEmail)" />
+                                </div>
+                            </div>
+                          
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <button type="submit" class=" btn btn-primary">Register</button>
+                                </div>
+                            </div>
+                        </div>
+                    </EditForm>
+                </div>
+
+            </div><!-- .card -->
+        </div><!-- .col -->
+
+    </div><!-- .row -->
+</div><!-- .nk-block -->
+
+@code {
+    [Parameter]
+    public string? Usercode { get; set; }
+    string? Message = string.Empty;
+    private EmailRegistrationVM model = new();
+
+    public async Task RegisterEmailAsync()
+    {
+        model.Usercode = Usercode;
+        var response = await UserService.EmailRegistrationAsync(model);
+        if (response.Flag)
+        {
+            toastService.ShowSuccess(response.Message);
+            Navigation.NavigateTo("/Login");
+        }
+        else
+        {
+            Message = response.Message;
+        }
+    }
+}

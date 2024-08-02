@@ -26,9 +26,9 @@ namespace FScan.Reports.Application.Models.DTOs
         public DateTime? DateTo { get; set; }
 
         [JsonPropertyName("attendanceList")]
-        public IEnumerable<AttendanceDTO> AttendanceList { get; set; }
+        public List<AttendanceDTO> AttendanceList { get; set; }
 
         [JsonPropertyName("logsDetails")]
-        public IEnumerable<FSLogsDTO> LogsDetails { get; set; }
+        public List<FSLogsDTO> LogsDetails { get; set; }
     }
 }

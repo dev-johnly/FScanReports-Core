@@ -15,5 +15,8 @@ namespace FScan.Reports.Application.Contracts
         Task<Response> ChangePasswordAsync(ChangePasswordVM vm);
         Task<ResetPasswordDetailsDTO> ResetPasswordDetailsAsync(string ID);
         Task<Response> ResetPasswordAsync(PasswordResetRequest request);
+        Task<Response> FChangePasswordAsync(ChangePasswordVM vm);
+        Task<Response> EmailRegistrationAsync(EmailRegistrationVM vm);
+        Task<Response> ForgotPasswordRequestAsync(ForgotPasswordVM vm);
     }
 }

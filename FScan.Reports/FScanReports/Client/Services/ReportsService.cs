@@ -48,4 +48,11 @@ public class ReportsService : IReportsService
         return result!;
     }
 
+
+    public async Task<PdfResponse> ExportToPDF(PdfRequest sheet)
+    {
+        var response = await _httpClient.PostAsJsonAsync("api/Reports/ExportToPDF", sheet);
+        var result = await response.Content.ReadFromJsonAsync<PdfResponse>();
+        return result!;
+    }
 }

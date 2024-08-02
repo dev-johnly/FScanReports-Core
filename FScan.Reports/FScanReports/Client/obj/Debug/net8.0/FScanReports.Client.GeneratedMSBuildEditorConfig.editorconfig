@@ -34,6 +34,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = TWFpbkxheW91dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/jcoroy/Documents/GitHub/FScanReports-Core/FScan.Reports/FScanReports/Client/Pages/Authentication/EmailRegistration.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aGVudGljYXRpb25cRW1haWxSZWdpc3RyYXRpb24ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jcoroy/Documents/GitHub/FScanReports-Core/FScan.Reports/FScanReports/Client/Pages/Authentication/FChangePassword.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aGVudGljYXRpb25cRkNoYW5nZVBhc3N3b3JkLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jcoroy/Documents/GitHub/FScanReports-Core/FScan.Reports/FScanReports/Client/Pages/Authentication/ForgotPassword.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aGVudGljYXRpb25cRm9yZ290UGFzc3dvcmQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/jcoroy/Documents/GitHub/FScanReports-Core/FScan.Reports/FScanReports/Client/Pages/Authentication/LoginPage.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aGVudGljYXRpb25cTG9naW5QYWdlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 

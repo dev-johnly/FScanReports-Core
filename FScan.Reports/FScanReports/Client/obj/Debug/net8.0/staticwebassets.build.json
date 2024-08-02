@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+AdbsXBlDGVeGqb0aWnwiDgnHvYEkrk+rTcoM7GCvGU=",
+  "Hash": "GSdndTLtL3shpctgSUjFVCNaHyY3fX22jvh1fIwFYaM=",
   "Source": "FScanReports.Client",
   "BasePath": "/",
   "Mode": "Root",
@@ -9175,6 +9175,25 @@
       "OriginalItemSpec": "wwwroot\\images\\BOCLogoSolo.png"
     },
     {
+      "Identity": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScanReports\\Client\\wwwroot\\images\\LogoReport.png",
+      "SourceId": "FScanReports.Client",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScanReports\\Client\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "images/LogoReport.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\LogoReport.png"
+    },
+    {
       "Identity": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScanReports\\Client\\wwwroot\\images\\Screenshot_20240419_082355_Facebook.jpg",
       "SourceId": "FScanReports.Client",
       "SourceType": "Discovered",
@@ -9496,6 +9515,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Identity": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScanReports\\Client\\wwwroot\\js\\downloadHelpers.js",
+      "SourceId": "FScanReports.Client",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScanReports\\Client\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "js/downloadHelpers.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\downloadHelpers.js"
     },
     {
       "Identity": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScanReports\\Client\\wwwroot\\service-worker.js",

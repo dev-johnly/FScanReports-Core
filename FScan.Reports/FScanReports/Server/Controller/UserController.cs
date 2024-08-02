@@ -44,6 +44,31 @@ namespace FScanReports.Server.Controller
             return Ok(result);
 
         }
-        
+
+
+        [HttpPost("FChangePassword")]
+        public async Task<IActionResult> FChangePasswordAsync([FromBody] ChangePasswordVM vm)
+        {
+            var result = await _user.FChangePasswordAsync(vm);
+            return Ok(result);
+
+        }
+
+
+        [HttpPost("EmailRegistration")]
+        public async Task<IActionResult> EmailRegistrationAsync([FromBody] EmailRegistrationVM vm)
+        {
+            var result = await _user.EmailRegistrationAsync(vm);
+            return Ok(result);
+
+        }
+
+        [HttpPost("ForgotPasswordRequest")]
+        public async Task<IActionResult> ForgotPasswordRequestAsync([FromBody] ForgotPasswordVM vm)
+        {
+            var result = await _user.ForgotPasswordRequestAsync(vm);
+            return Ok(result);
+
+        }
     }
 }

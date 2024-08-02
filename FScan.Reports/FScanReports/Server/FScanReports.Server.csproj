@@ -7,7 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="images\LogoReport.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="images\LogoReport.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.7" />
+    <PackageReference Include="PdfSharp" Version="6.1.1" />
 	  <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
 
   </ItemGroup>
@@ -16,6 +28,10 @@
     <ProjectReference Include="..\..\FScan.Reports.Application\FScan.Reports.Application.csproj" />
     <ProjectReference Include="..\..\FScan.Reports.Infrastructure\FScan.Reports.Infrastructure.csproj" />
     <ProjectReference Include="..\Client\FScanReports.Client.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="TimesheetDump\" />
   </ItemGroup>
 
 </Project>

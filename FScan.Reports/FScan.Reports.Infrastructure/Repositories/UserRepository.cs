@@ -9,6 +9,7 @@ using FScan.Reports.Infrastructure.Data;
 using FScan.Reports.Infrastructure.Helpers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -72,21 +73,56 @@ namespace FScan.Reports.Infrastructure.Repositories
             return response;
         }
 
+        public async Task<Response> FChangePasswordAsync(ChangePasswordVM vm)
+        {
+            Response response = new();
 
-        private void ProcessPasswordReset(string usercode, string email)
+            try
+            {
+                var user = await _context.NGAC_USERINFO
+                                            .Where(s => s.ID.Trim() == vm.Usercode)
+                                            .FirstOrDefaultAsync();
+
+                string decryptedPassword = Encryptor.Decrypt(user.FSPassword);
+
+                if (!decryptedPassword.Equals(vm.OldPassword))
+                {
+                    response.Flag = false;
+                    response.Message = "Invalid old password";
+                }
+                else
+                {
+                    user.FSPassword = Encryptor.Encrypt(vm.NewPassword);
+                    await _context.SaveChangesAsync();
+
+                    response.Flag = true;
+                    response.Message = "Password changed successfully.";
+                }
+
+
+            }
+            catch (Exception e)
+            {
+                response.Flag = false;
+                response.Message = "An error occurred while changing the password.";
+            }
+            return response;
+        }
+
+        public async Task ProcessPasswordReset(string usercode, string email)
         {
             string defaultPass = GenerateRandomPassword();
 
             //send email
 
-            var user = _context.NGAC_USERINFO.Where(s => s.ID == usercode).FirstOrDefault();
+            var user = await _context.NGAC_USERINFO.Where(s => s.ID == usercode).FirstOrDefaultAsync();
 
             if (user != null)
             {
                 user.FSPassword = Encryptor.Encrypt(defaultPass);
                 user.MustChangePW = true;
                 _context.Update(user);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
             }
 
             MailDTO mail = new();
@@ -344,5 +380,75 @@ namespace FScan.Reports.Infrastructure.Repositories
             }
         }
 
+        public async Task<Response> EmailRegistrationAsync(EmailRegistrationVM vm)
+        {
+           
+
+            try
+            {
+                var user = await _context.NGAC_USERINFO
+                                            .Where(s => s.ID.Trim() == vm.Usercode)
+                                            .FirstOrDefaultAsync();
+
+                if (user == null)
+                {
+                    return new Response
+                    {
+                        Flag = false,
+                        Message = "User not found"
+                    };
+                }
+                else
+                {
+                    user.BankcomEmail = vm.Email;
+                    _context.Update(user);
+                    await _context.SaveChangesAsync();
+
+                    return new Response
+                    {
+                        Flag = true,
+                        Message = "Succesfully Registered."
+                    };
+                }
+
+
+            }
+            catch (Exception e)
+            {
+                return new Response
+                {
+                    Flag = false,
+                    Message = e.Message,
+                };
+               
+            }
+           
+        }
+
+
+        public async Task<Response> ForgotPasswordRequestAsync(ForgotPasswordVM vm)
+        {
+            string regEmail = CheckForRegisteredEmail(vm.Usercode);
+
+            if (!string.IsNullOrWhiteSpace(regEmail))
+            {
+                await ProcessPasswordReset(vm.Usercode, regEmail);
+                return new Response
+                {
+                    Flag = true,
+                    Message = "Check your email for your password reset details."
+                };
+            }
+            else {
+                return new Response
+                {
+                    Flag = false,
+                    Message = "Failed to reset your password please contact the administrator."
+                };
+            }
+           
+
+            //return View("Login");
+        }
     }
 }

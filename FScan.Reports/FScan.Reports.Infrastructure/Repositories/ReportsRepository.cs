@@ -3,19 +3,13 @@ using FScan.Reports.Application.Models.DTOs;
 using FScan.Reports.Application.Models.Helpers;
 using FScan.Reports.Application.Models.Requests;
 using FScan.Reports.Application.Models.Responses;
-using FScan.Reports.Application.Models.ViewModels;
-using FScan.Reports.Domain.Entities;
 using FScan.Reports.Infrastructure.Data;
 using FScan.Reports.Infrastructure.Helpers;
+using iTextSharp.text.pdf;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+using Microsoft.Extensions.Hosting;
+
 
 namespace FScan.Reports.Infrastructure.Repositories;
 
@@ -24,13 +18,15 @@ public class ReportsRepository : IReportsRepository
     private readonly UserClaimsGetter _userClaims;
     private readonly FScanContext _context;
     private readonly string? _ID;
+    private readonly IHostingEnvironment _environment;
 
-    public ReportsRepository(FScanContext context, IHttpContextAccessor httpContextAccessor)
+    public ReportsRepository(FScanContext context, IHttpContextAccessor httpContextAccessor, IHostingEnvironment environment)
     {
         //_userClaims = userClaims;
         _userClaims = new UserClaimsGetter(httpContextAccessor);
         _context = context;
         _ID = _userClaims.GetClaims().ID;
+       _environment = environment;
     }
 
     public async Task<TimeSheetDTO> TimeSheetsAsync()
@@ -409,89 +405,6 @@ public class ReportsRepository : IReportsRepository
         }
     }
 
-
-    //public async Task<FSLogsDetailsResponse> FScanLogsDetailsAsync(FSLogDetailsRequest request)
-    //{
-    //    FSLogsDetailsResponse response = new();
-    //    List<FSLogsDetailsDTO> logs = new();
-
-    //    try
-    //    {
-    //        // Adjust the dates if not provided
-    //        if (!request.DateFrom.HasValue || request.DateFrom.Value.Year == 1)
-    //        {
-    //            request.DateFrom = DateTime.Now;
-    //        }
-
-    //        if (!request.DateTo.HasValue || request.DateTo.Value.Year == 1)
-    //        {
-    //            request.DateTo = DateTime.Now;
-    //        }
-
-    //        DateTime dateFrom = request.DateFrom.Value;
-    //        DateTime dateTo = request.DateTo.Value;
-
-    //        var query = from A in _context.NGAC_USERINFO
-    //                    join B in _context.NGAC_GROUP on A.GroupID equals B.ID into grouptb
-    //                    from grp in grouptb.DefaultIfEmpty()
-    //                    join C in _context.NGAC_AUTHLOG on A.ID equals C.UserID
-    //                    join D in _context.NGAC_TERMINAL on C.TerminalID equals D.ID
-    //                    where A.ID == request.ID && A.Name != "admin"
-    //                    select new FSLogsDetailsDTO
-    //                    {
-    //                        Date = C.TransactionTime,
-    //                        ID = A.ID,
-    //                        Name = A.Name,
-    //                        GroupName = grp.Name,
-    //                        TerminalName = D.Name,
-    //                        FunctionKey = C.FunctionKey
-    //                    };
-
-    //        // Apply date filtering if date range is set
-    //        if (dateFrom.Year != 1 && dateTo.Year != 1)
-    //        {
-    //            query = query.Where(x => x.Date >= dateFrom && x.Date <= dateTo);
-    //        }
-
-    //        var result = await query.ToListAsync();
-
-    //        if (result.Any())
-    //        {
-    //            logs.AddRange(result);
-    //            response.GetLogsList = result;
-    //            response.DateFrom = request.Set ? dateFrom : new DateTime(dateFrom.Year, dateFrom.Month, 1);
-    //            response.DateTo = request.Set ? dateTo : response.DateFrom.GetValueOrDefault().AddMonths(1).AddDays(-1);
-
-    //            var firstResult = result.First();
-    //            response.DetailsName = firstResult.Name;
-    //            response.DetailsId = firstResult.ID;
-    //            response.GroupName = firstResult.GroupName;
-    //        }
-    //        else
-    //        {
-    //            logs.AddRange(result);
-    //            response.GetLogsList = result;
-    //            response.DateFrom = request.Set ? dateFrom : new DateTime(dateFrom.Year, dateFrom.Month, 1);
-    //            response.DateTo = request.Set ? dateTo : response.DateFrom.GetValueOrDefault().AddMonths(1).AddDays(-1);
-    //            var firstResult = result.First();
-    //            response.DetailsName = firstResult.Name;
-    //            response.DetailsId = firstResult.ID;
-    //            response.GroupName = firstResult.GroupName;
-    //            response.GetLogs = "No data available in the selected date range.";
-    //            response.DateFrom = request.Set ? dateFrom : new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
-    //            response.DateTo = request.Set ? dateTo : response.DateFrom.GetValueOrDefault().AddMonths(1).AddDays(-1);
-    //        }
-
-    //        return response;
-    //    }
-    //    catch (Exception ex)
-    //    {
-    //        // Log the exception
-    //        Console.WriteLine($"Exception in FScanLogsDetailsAsync: {ex.Message}");
-    //        return new FSLogsDetailsResponse();
-    //    }
-    //}
-
     private List<FSLogsDetailsDTO> Logdetails(List<FSLogsDetailsDTO> attList)
     {
         List<FSLogsDetailsDTO> LogsDetails = new List<FSLogsDetailsDTO>();
@@ -514,6 +427,132 @@ public class ReportsRepository : IReportsRepository
 
         return LogsDetails;
     }
+
+    public async Task<PdfResponse> ExportToPDF(PdfRequest sheet)
+    {
+        var EmployeeId = _ID;
+        if (!string.IsNullOrEmpty(EmployeeId))
+        {
+            try {
+                List<AttendanceDTO> attList = await GetTimesheet(sheet.DateFrom.GetValueOrDefault(), sheet.DateTo.GetValueOrDefault());
+                var AttendanceList = await ProcessAttendance(attList);
+
+                //string filename = string.Format("AttendanceReport{0}.pdf", DateTime.Now.Date.ToString("yyyyMMdd"));
+                string filename = $"AttendanceReport_{Guid.NewGuid()}.pdf";
+                string folderPath = Path.Combine(Directory.GetCurrentDirectory(), "TimesheetDump");
+
+                // Ensure the directory exists
+                Directory.CreateDirectory(folderPath);
+
+                // Combine folder path with filename
+                string fullPath = Path.Combine(folderPath, filename);
+
+                //filename = Path.Combine(Directory.GetCurrentDirectory(), @"TimesheetDump", filename);
+                BuildInquireReportPDF(AttendanceList, fullPath, EmployeeId, sheet.DateFrom.GetValueOrDefault(), sheet.DateTo.GetValueOrDefault());
+
+                // Read the file into a byte array
+                byte[] fileBytes = await File.ReadAllBytesAsync(fullPath);
+
+
+                return new PdfResponse
+                {
+                    Filename = fullPath,
+                    FileBytes = fileBytes
+                };
+            }
+            catch (Exception ex) {
+                return new PdfResponse
+                {
+                    Filename = "",
+                    ErrorMessage = ex.Message
+
+                };
+            }
+          
+        }
+        else
+        {
+            return new PdfResponse
+            {
+                Filename = "",
+
+            };
+        }
+      
+    }
+
+    private void BuildInquireReportPDF(List<AttendanceDTO> attList, string filename, string EmployeeId /*Nullable*/, DateTime DateFrom, DateTime DateTo)
+    {
+        try {
+            PDFUtil pdf = new PDFUtil(_environment);
+
+            float[] headerSize = { 50, 35, 35, 35, 35, 35, 35 };
+            PdfPTable content = new PdfPTable(7);
+
+            content = pdf.AddCellToBody(content, headerSize, "Finger Scan - Attendance Report", 7); // colSpan value
+            content = pdf.AddCellToBody(content, headerSize, "Period From " + DateFrom.ToString("MM/dd/yyyy") + " to " + DateTo.ToString("MM/dd/yyyy"), 7);
+
+            string name = "";
+            string id = "";
+            string Unit = "";
+
+            // Use this statement to generate other DTR Report
+            var QUERY = (from a in _context.NGAC_USERINFO
+                         where a.ID == EmployeeId
+                         select a).ToList();
+            foreach (var item in QUERY)
+            {
+                var QUERY2 = (from a in _context.NGAC_GROUP
+                              where a.ID == item.GroupID
+                              select a).FirstOrDefault();
+
+                id = item.ID;
+                name = item.Name;
+
+                if (QUERY2 != null)
+                    Unit = QUERY2.Name;
+                else
+                    Unit = string.Empty;
+            }
+
+            pdf.AddNameHeader(content, headerSize, name + " (" + id + ")");
+            pdf.AddNameHeader(content, headerSize, Unit);
+            pdf.AddNameHeader(content, headerSize, "");
+
+            pdf.AddCellHeader(content, "", 1);
+            pdf.AddCellHeader(content, "ATTENDANCE", 3);
+            pdf.AddCellHeader(content, "LUNCH BREAK", 3);
+
+            content = pdf.AddCellToBodySubHeader(content, "DATE");
+            content = pdf.AddCellToBodySubHeader(content, "TIME IN (F1)");
+            content = pdf.AddCellToBodySubHeader(content, "TIME OUT (F4)");
+            content = pdf.AddCellToBodySubHeader(content, "TOTAL HRS");
+            content = pdf.AddCellToBodySubHeader(content, "START (F2)");
+            content = pdf.AddCellToBodySubHeader(content, "END (F3)");
+            content = pdf.AddCellToBodySubHeader(content, "TOTAL HRS");
+
+            foreach (var att in attList)
+            {
+                content = pdf.AddCellToBodyLeft(content, att.AttendanceDateText);
+                content = pdf.AddCellToBodyLeft(content, att.TimeInText);
+                content = pdf.AddCellToBodyLeft(content, att.TimeOutText);
+                content = pdf.AddCellToBodyLeft(content, att.TotalTime.ToString());
+                content = pdf.AddCellToBodyLeft(content, att.LunchOutText);
+                content = pdf.AddCellToBodyLeft(content, att.LunchInText);
+                content = pdf.AddCellToBodyLeft(content, att.TotalLunchTime.ToString());
+
+            }
+
+            pdf.AddFooterCells(content, headerSize, "");
+            pdf.AddFooterCells(content, headerSize, "");
+            pdf.AddFooterCells(content, headerSize, "       _________________________               _________________________             _________________________");
+            pdf.AddFooterCells(content, headerSize, "Employee Signature                                    Checked By                                           Approved By        ");
+
+            MemoryStream pdfStream = pdf.CreatePdf(content, filename, true, true);
+        }
+        catch(Exception e) { }
+    }
+
 }
 
 

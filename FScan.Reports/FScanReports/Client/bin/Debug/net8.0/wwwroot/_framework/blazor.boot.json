@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "FScanReports.Client",
   "resources": {
-    "hash": "sha256-ojFGd1eD6svMweq3wANryR55k2zFn76HMOemWXbcVqA=",
+    "hash": "sha256-mBa76DbB+IH/Ua88JG4Xp5KzwIBnucWsNEt4hGGBk4Q=",
     "jsModuleNative": {
       "dotnet.native.8.0.5.ew1vqrwwsw.js": "sha256-boyHe+0RMZDkzBKGhsrnXPhPg3oZ6UqJnTUzngJPjNY="
     },
@@ -234,14 +234,14 @@
       "mscorlib.wasm": "sha256-XvLAB5IyfVSmj5aaGnPwgVFaaZz8jXmbN8WmeopiPBM=",
       "netstandard.wasm": "sha256-TbMssdnuTiKq1gjTPkpgROAuWN0uhvPnagvWR+wAgNs=",
       "System.Private.CoreLib.wasm": "sha256-sscg+Efk8ROPq+q4IVmhShzITuoOYvB8Bsc+Mp9vcSM=",
-      "FScan.Reports.Application.wasm": "sha256-ygnnMSVEj2XXuscMYLOzwf6eXRxevSVmKt/D4OLFnXA=",
-      "FScan.Reports.Domain.wasm": "sha256-0Ivd4CCUMXhP3PsKjF+HHnTcU1+Fnju0pFqomdqi43c=",
-      "FScanReports.Client.wasm": "sha256-Y5DEnkbau9V7EAWkYPhfvtDaWaw+3I4sHCx+AnkHH3Q="
+      "FScan.Reports.Application.wasm": "sha256-Y+qInx/Og9OxiTS8REK9hrffTqcxU6XS0p4pDSwYsTA=",
+      "FScan.Reports.Domain.wasm": "sha256-4GoKXXOsDgHv8rm6m9RamHj92qVLNoAujXMcxc3ihaQ=",
+      "FScanReports.Client.wasm": "sha256-EOFK/O9CG5bQ5ibN/UYQHPddpEvlXisBCIhanQX0Fk4="
     },
     "pdb": {
-      "FScan.Reports.Application.pdb": "sha256-JCoifmv/X4w67pjRvFVVkU4pAxvp1IfIh5RaIrmg1As=",
-      "FScan.Reports.Domain.pdb": "sha256-zqj9ST22tA4h6+Itbhdwu9wALi7biZWpP39fYezxQBc=",
-      "FScanReports.Client.pdb": "sha256-Th4G58YJ4zV1GONFF0KKmSIjZhqVez7Uz/blSoTqTHI="
+      "FScan.Reports.Application.pdb": "sha256-ajHa+uaSYeLzM1jxaBYKrnt0PwL7+PsOx3kRLDD60FY=",
+      "FScan.Reports.Domain.pdb": "sha256-R0kmvw09OtqKw0GcAcFAhcyjlgM42+OpUtZTejCLw3M=",
+      "FScanReports.Client.pdb": "sha256-TyRz9ET2Qt7Rdrri3Fc+U8Q1IHNQ1dt0CUC7bA2PArg="
     }
   },
   "cacheBootResources": true,

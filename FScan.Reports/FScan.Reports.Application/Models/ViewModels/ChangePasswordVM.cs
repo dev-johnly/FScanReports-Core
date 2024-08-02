@@ -10,6 +10,8 @@ namespace FScan.Reports.Application.Models.ViewModels
 {
     public class ChangePasswordVM
     {
+        public string Usercode { get; set; }
+
         [DataType(DataType.Password)]
         [Required(ErrorMessage = "Old password is required.")]
         [RegularExpression(@"^(?!.*[ ])(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z])(?=.*[\W]).{8,20}$",

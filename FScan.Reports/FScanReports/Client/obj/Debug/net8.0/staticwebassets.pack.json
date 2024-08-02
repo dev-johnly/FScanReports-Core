@@ -53,6 +53,10 @@
       "PackagePath": "staticwebassets\\images\\BOC_logo_new.png"
     },
     {
+      "Id": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScanReports\\Client\\wwwroot\\images\\LogoReport.png",
+      "PackagePath": "staticwebassets\\images\\LogoReport.png"
+    },
+    {
       "Id": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScanReports\\Client\\wwwroot\\images\\Screenshot_20240419_082355_Facebook.jpg",
       "PackagePath": "staticwebassets\\images\\Screenshot_20240419_082355_Facebook.jpg"
     },
@@ -123,6 +127,10 @@
     {
       "Id": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScanReports\\Client\\wwwroot\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScanReports\\Client\\wwwroot\\js\\downloadHelpers.js",
+      "PackagePath": "staticwebassets\\js\\downloadHelpers.js"
     },
     {
       "Id": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScanReports\\Client\\wwwroot\\service-worker.js",

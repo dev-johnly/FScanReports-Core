@@ -20,4 +20,5 @@ public interface IReportsRepository
 
     Task<FSLogsDetailsResponse> FScanLogsDetailsAsync(FSLogDetailsRequest request);
 
+    Task<PdfResponse> ExportToPDF(PdfRequest sheet);
 }

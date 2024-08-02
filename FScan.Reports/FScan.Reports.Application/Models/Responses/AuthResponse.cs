@@ -18,5 +18,10 @@ namespace FScan.Reports.Application.Models.Responses
         public bool Success { get; set; }
         public string UserCode { get; set; }
 
+        public bool NoEmail { get; set; }
+
+        public bool IsAuthenticated { get; set; }
+        public bool IsPasswordMustChange { get; set; }
+
     }
 }

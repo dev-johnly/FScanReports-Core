@@ -13,4 +13,6 @@ public interface IReportsService
     Task<PagedResult<FSLogsDTO>> FScanLogsAsync(string? key, int currentPage, int pageSize);
 
     Task<FSLogsDetailsResponse> FScanLogsDetailsAsync(FSLogDetailsRequest request);
+
+    Task<PdfResponse> ExportToPDF(PdfRequest sheet);
 }

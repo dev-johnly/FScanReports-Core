@@ -3,31 +3,39 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="src/images/favicon.png">
+    <link rel="shortcut icon" href="images/BOCLogoSolo.png">
     <title>FScanReports</title>
     <base href="/" />
     <link href="css/app.css" rel="stylesheet" />
     <link href="FScanReports.Client.styles.css" rel="stylesheet" />
     <link rel="stylesheet" href="src/assets/css/dashlite.css?ver=3.1.2">
     <link id="skin-default" rel="stylesheet" href="src/assets/css/theme.css?ver=3.1.2">
+
 </head>
-<body>
-    <div id="app">
-        <svg class="loading-progress">
-            <circle r="40%" cx="50%" cy="50%" />
-            <circle r="40%" cx="50%" cy="50%" />
-        </svg>
-        <div class="loading-progress-text"></div>
-        <div id="blazor-error-ui">
-            An unhandled error has occurred.
-            <a href="" class="reload">Reload</a>
-            <a class="dismiss">🗙</a>
+<body class="bg-lighter">
+    <div class="nk-app-root">
+        <div class="nk-main">
+            <div id="app">
+                <svg class="loading-progress">
+                    <circle r="40%" cx="50%" cy="50%" />
+                    <circle r="40%" cx="50%" cy="50%" />
+                </svg>
+
+                <!--<div class="loading-progress-text"></div>-->
+                <div id="blazor-error-ui">
+                    An unhandled error has occurred.
+                    <a href="" class="reload">Reload</a>
+                    <a class="dismiss">🗙</a>
+                </div>
+            </div>
         </div>
     </div>
-
+   
+    <script src="js/downloadHelpers.js"></script>
     <script src="_framework/blazor.webassembly.js"></script>
     <script>navigator.serviceWorker.register('service-worker.js');</script>
     <script src="src/assets/js/bundle.js?ver=3.1.2"></script>
     <script src="src/assets/js/scripts.js?ver=3.1.2"></script>
+
 </body>
 </html>

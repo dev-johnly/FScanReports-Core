@@ -85,3 +85,12 @@ code {
 .invalid {
     outline: 1px solid red;
 }
+
+/*.transparent-modal .modal-content {
+    background-color: transparent;
+    border: none;
+}
+
+.transparent-modal .modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.5);*/ /* Semi-transparent backdrop */
+/*}*/

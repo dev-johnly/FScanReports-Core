@@ -44,11 +44,14 @@
                     </table>
                  
                 </div>
+                <div class="card-inner">
+
+                    <CustomPagination TItem="FSLogsDTO"
+                                      CurrentPage="@CurrentPage"
+                                      TotalPages="@TotalPages"
+                                      PageChanged="OnPageChanged" />
+                </div>
  
-                <CustomPagination TItem="FSLogsDTO"
-                                  CurrentPage="@CurrentPage"
-                                  TotalPages="@TotalPages"
-                                  PageChanged="OnPageChanged" />
 
             </div>
         </div>
