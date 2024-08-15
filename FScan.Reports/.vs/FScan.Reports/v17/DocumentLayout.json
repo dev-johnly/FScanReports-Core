@@ -3,40 +3,44 @@
   "WorkspaceRootPath": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C8C061F7-3CBE-42CC-8341-38D874443302}|FScan.Reports.Infrastructure\\FScan.Reports.Infrastructure.csproj|c:\\users\\jcoroy\\documents\\github\\fscanreports-core\\fscan.reports\\fscan.reports.infrastructure\\helpers\\pdfutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C8C061F7-3CBE-42CC-8341-38D874443302}|FScan.Reports.Infrastructure\\FScan.Reports.Infrastructure.csproj|solutionrelative:fscan.reports.infrastructure\\helpers\\pdfutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C8C061F7-3CBE-42CC-8341-38D874443302}|FScan.Reports.Infrastructure\\FScan.Reports.Infrastructure.csproj|c:\\users\\jcoroy\\documents\\github\\fscanreports-core\\fscan.reports\\fscan.reports.infrastructure\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8C061F7-3CBE-42CC-8341-38D874443302}|FScan.Reports.Infrastructure\\FScan.Reports.Infrastructure.csproj|solutionrelative:fscan.reports.infrastructure\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8C061F7-3CBE-42CC-8341-38D874443302}|FScan.Reports.Infrastructure\\FScan.Reports.Infrastructure.csproj|c:\\users\\jcoroy\\documents\\github\\fscanreports-core\\fscan.reports\\fscan.reports.infrastructure\\helpers\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8C061F7-3CBE-42CC-8341-38D874443302}|FScan.Reports.Infrastructure\\FScan.Reports.Infrastructure.csproj|solutionrelative:fscan.reports.infrastructure\\helpers\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{171A7FAC-DAD5-480A-A47E-9046B2C094C7}|FScanReports\\Server\\FScanReports.Server.csproj|c:\\users\\jcoroy\\documents\\github\\fscanreports-core\\fscan.reports\\fscanreports\\server\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{171A7FAC-DAD5-480A-A47E-9046B2C094C7}|FScanReports\\Server\\FScanReports.Server.csproj|solutionrelative:fscanreports\\server\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8C061F7-3CBE-42CC-8341-38D874443302}|FScan.Reports.Infrastructure\\FScan.Reports.Infrastructure.csproj|c:\\users\\jcoroy\\documents\\github\\fscanreports-core\\fscan.reports\\fscan.reports.infrastructure\\helpers\\emailutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8C061F7-3CBE-42CC-8341-38D874443302}|FScan.Reports.Infrastructure\\FScan.Reports.Infrastructure.csproj|solutionrelative:fscan.reports.infrastructure\\helpers\\emailutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56B79F6F-887C-4AAA-A086-534D2C181B05}|FScanReports\\Client\\FScanReports.Client.csproj|c:\\users\\jcoroy\\documents\\github\\fscanreports-core\\fscan.reports\\fscanreports\\client\\pages\\authentication\\fchangepassword.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{56B79F6F-887C-4AAA-A086-534D2C181B05}|FScanReports\\Client\\FScanReports.Client.csproj|solutionrelative:fscanreports\\client\\pages\\authentication\\fchangepassword.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{171A7FAC-DAD5-480A-A47E-9046B2C094C7}|FScanReports\\Server\\FScanReports.Server.csproj|c:\\users\\jcoroy\\documents\\github\\fscanreports-core\\fscan.reports\\fscanreports\\server\\controller\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{171A7FAC-DAD5-480A-A47E-9046B2C094C7}|FScanReports\\Server\\FScanReports.Server.csproj|solutionrelative:fscanreports\\server\\controller\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{171A7FAC-DAD5-480A-A47E-9046B2C094C7}|FScanReports\\Server\\FScanReports.Server.csproj|c:\\users\\jcoroy\\documents\\github\\fscanreports-core\\fscan.reports\\fscanreports\\server\\controller\\reportscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{171A7FAC-DAD5-480A-A47E-9046B2C094C7}|FScanReports\\Server\\FScanReports.Server.csproj|solutionrelative:fscanreports\\server\\controller\\reportscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C8C061F7-3CBE-42CC-8341-38D874443302}|FScan.Reports.Infrastructure\\FScan.Reports.Infrastructure.csproj|c:\\users\\jcoroy\\documents\\github\\fscanreports-core\\fscan.reports\\fscan.reports.infrastructure\\repositories\\reportsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C8C061F7-3CBE-42CC-8341-38D874443302}|FScan.Reports.Infrastructure\\FScan.Reports.Infrastructure.csproj|solutionrelative:fscan.reports.infrastructure\\repositories\\reportsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{56B79F6F-887C-4AAA-A086-534D2C181B05}|FScanReports\\Client\\FScanReports.Client.csproj|c:\\users\\jcoroy\\documents\\github\\fscanreports-core\\fscan.reports\\fscanreports\\client\\wwwroot\\css\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{56B79F6F-887C-4AAA-A086-534D2C181B05}|FScanReports\\Client\\FScanReports.Client.csproj|solutionrelative:fscanreports\\client\\wwwroot\\css\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{171A7FAC-DAD5-480A-A47E-9046B2C094C7}|FScanReports\\Server\\FScanReports.Server.csproj|c:\\users\\jcoroy\\documents\\github\\fscanreports-core\\fscan.reports\\fscanreports\\server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{171A7FAC-DAD5-480A-A47E-9046B2C094C7}|FScanReports\\Server\\FScanReports.Server.csproj|solutionrelative:fscanreports\\server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{56B79F6F-887C-4AAA-A086-534D2C181B05}|FScanReports\\Client\\FScanReports.Client.csproj|c:\\users\\jcoroy\\documents\\github\\fscanreports-core\\fscan.reports\\fscanreports\\client\\pages\\reports\\fingerprintscanlogs.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{56B79F6F-887C-4AAA-A086-534D2C181B05}|FScanReports\\Client\\FScanReports.Client.csproj|solutionrelative:fscanreports\\client\\pages\\reports\\fingerprintscanlogs.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{56B79F6F-887C-4AAA-A086-534D2C181B05}|FScanReports\\Client\\FScanReports.Client.csproj|c:\\users\\jcoroy\\documents\\github\\fscanreports-core\\fscan.reports\\fscanreports\\client\\pages\\authentication\\forgotpassword.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{56B79F6F-887C-4AAA-A086-534D2C181B05}|FScanReports\\Client\\FScanReports.Client.csproj|solutionrelative:fscanreports\\client\\pages\\authentication\\forgotpassword.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{56B79F6F-887C-4AAA-A086-534D2C181B05}|FScanReports\\Client\\FScanReports.Client.csproj|c:\\users\\jcoroy\\documents\\github\\fscanreports-core\\fscan.reports\\fscanreports\\client\\pages\\users\\resetpassword.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{56B79F6F-887C-4AAA-A086-534D2C181B05}|FScanReports\\Client\\FScanReports.Client.csproj|solutionrelative:fscanreports\\client\\pages\\users\\resetpassword.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{56B79F6F-887C-4AAA-A086-534D2C181B05}|FScanReports\\Client\\FScanReports.Client.csproj|c:\\users\\jcoroy\\documents\\github\\fscanreports-core\\fscan.reports\\fscanreports\\client\\pages\\reports\\attendancereport.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{56B79F6F-887C-4AAA-A086-534D2C181B05}|FScanReports\\Client\\FScanReports.Client.csproj|solutionrelative:fscanreports\\client\\pages\\reports\\attendancereport.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{56B79F6F-887C-4AAA-A086-534D2C181B05}|FScanReports\\Client\\FScanReports.Client.csproj|c:\\users\\jcoroy\\documents\\github\\fscanreports-core\\fscan.reports\\fscanreports\\client\\pages\\users\\changepassword.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{56B79F6F-887C-4AAA-A086-534D2C181B05}|FScanReports\\Client\\FScanReports.Client.csproj|solutionrelative:fscanreports\\client\\pages\\users\\changepassword.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{56B79F6F-887C-4AAA-A086-534D2C181B05}|FScanReports\\Client\\FScanReports.Client.csproj|c:\\users\\jcoroy\\documents\\github\\fscanreports-core\\fscan.reports\\fscanreports\\client\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{56B79F6F-887C-4AAA-A086-534D2C181B05}|FScanReports\\Client\\FScanReports.Client.csproj|solutionrelative:fscanreports\\client\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{171A7FAC-DAD5-480A-A47E-9046B2C094C7}|FScanReports\\Server\\FScanReports.Server.csproj|c:\\users\\jcoroy\\documents\\github\\fscanreports-core\\fscan.reports\\fscanreports\\server\\controller\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{171A7FAC-DAD5-480A-A47E-9046B2C094C7}|FScanReports\\Server\\FScanReports.Server.csproj|solutionrelative:fscanreports\\server\\controller\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,117 +50,129 @@
       "DocumentGroups": [
         {
           "DockedWidth": 324,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "PDFUtil.cs",
-              "DocumentMoniker": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScan.Reports.Infrastructure\\Helpers\\PDFUtil.cs",
-              "RelativeDocumentMoniker": "FScan.Reports.Infrastructure\\Helpers\\PDFUtil.cs",
-              "ToolTip": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScan.Reports.Infrastructure\\Helpers\\PDFUtil.cs",
-              "RelativeToolTip": "FScan.Reports.Infrastructure\\Helpers\\PDFUtil.cs",
-              "ViewState": "AQIAAKYAAAAAAAAAAADwvwAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-01T02:53:49.269Z",
-              "EditorCaption": ""
+              "DocumentIndex": 2,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScanReports\\Server\\appsettings.json",
+              "RelativeDocumentMoniker": "FScanReports\\Server\\appsettings.json",
+              "ToolTip": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScanReports\\Server\\appsettings.json",
+              "RelativeToolTip": "FScanReports\\Server\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-08-08T01:06:13.116Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Settings.cs",
+              "DocumentMoniker": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScan.Reports.Infrastructure\\Helpers\\Settings.cs",
+              "RelativeDocumentMoniker": "FScan.Reports.Infrastructure\\Helpers\\Settings.cs",
+              "ToolTip": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScan.Reports.Infrastructure\\Helpers\\Settings.cs",
+              "RelativeToolTip": "FScan.Reports.Infrastructure\\Helpers\\Settings.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-08T01:05:39.618Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EmailUtil.cs",
+              "DocumentMoniker": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScan.Reports.Infrastructure\\Helpers\\EmailUtil.cs",
+              "RelativeDocumentMoniker": "FScan.Reports.Infrastructure\\Helpers\\EmailUtil.cs",
+              "ToolTip": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScan.Reports.Infrastructure\\Helpers\\EmailUtil.cs",
+              "RelativeToolTip": "FScan.Reports.Infrastructure\\Helpers\\EmailUtil.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAQwBYAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-08T01:05:23.518Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FChangePassword.razor",
+              "DocumentMoniker": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScanReports\\Client\\Pages\\Authentication\\FChangePassword.razor",
+              "RelativeDocumentMoniker": "FScanReports\\Client\\Pages\\Authentication\\FChangePassword.razor",
+              "ToolTip": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScanReports\\Client\\Pages\\Authentication\\FChangePassword.razor",
+              "RelativeToolTip": "FScanReports\\Client\\Pages\\Authentication\\FChangePassword.razor",
+              "ViewState": "AQIAADgAAAAAAAAAAAAAAEQAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-07T01:38:33.085Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScan.Reports.Infrastructure\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "FScan.Reports.Infrastructure\\Repositories\\UserRepository.cs",
+              "ToolTip": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScan.Reports.Infrastructure\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "FScan.Reports.Infrastructure\\Repositories\\UserRepository.cs",
+              "ViewState": "AQIAADsAAAAAAAAAAAAYwDwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-07T01:29:28.283Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "ReportsRepository.cs",
               "DocumentMoniker": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScan.Reports.Infrastructure\\Repositories\\ReportsRepository.cs",
               "RelativeDocumentMoniker": "FScan.Reports.Infrastructure\\Repositories\\ReportsRepository.cs",
               "ToolTip": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScan.Reports.Infrastructure\\Repositories\\ReportsRepository.cs",
               "RelativeToolTip": "FScan.Reports.Infrastructure\\Repositories\\ReportsRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEBAABJAAAA",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-31T05:18:26.931Z",
+              "WhenOpened": "2024-08-07T01:11:22.305Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ForgotPassword.razor",
-              "DocumentMoniker": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScanReports\\Client\\Pages\\Authentication\\ForgotPassword.razor",
-              "RelativeDocumentMoniker": "FScanReports\\Client\\Pages\\Authentication\\ForgotPassword.razor",
-              "ToolTip": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScanReports\\Client\\Pages\\Authentication\\ForgotPassword.razor",
-              "RelativeToolTip": "FScanReports\\Client\\Pages\\Authentication\\ForgotPassword.razor",
-              "ViewState": "AQIAAB8AAAAAAAAAAAAgwC4AAABFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-31T07:04:41.427Z"
+              "DocumentIndex": 8,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScanReports\\Server\\Program.cs",
+              "RelativeDocumentMoniker": "FScanReports\\Server\\Program.cs",
+              "ToolTip": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScanReports\\Server\\Program.cs",
+              "RelativeToolTip": "FScanReports\\Server\\Program.cs",
+              "ViewState": "AQIAADAAAAAAAAAAAAAAAEoAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-07T01:13:55.511Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "ResetPassword.razor",
-              "DocumentMoniker": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScanReports\\Client\\Pages\\Users\\ResetPassword.razor",
-              "RelativeDocumentMoniker": "FScanReports\\Client\\Pages\\Users\\ResetPassword.razor",
-              "ToolTip": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScanReports\\Client\\Pages\\Users\\ResetPassword.razor",
-              "RelativeToolTip": "FScanReports\\Client\\Pages\\Users\\ResetPassword.razor",
-              "ViewState": "AQIAABgAAAAAAAAAAAAAAAAAAAAVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-31T06:10:30.074Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ChangePassword.razor",
-              "DocumentMoniker": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScanReports\\Client\\Pages\\Users\\ChangePassword.razor",
-              "RelativeDocumentMoniker": "FScanReports\\Client\\Pages\\Users\\ChangePassword.razor",
-              "ToolTip": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScanReports\\Client\\Pages\\Users\\ChangePassword.razor",
-              "RelativeToolTip": "FScanReports\\Client\\Pages\\Users\\ChangePassword.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-31T06:54:37.19Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "FingerPrintScanLogs.razor",
-              "DocumentMoniker": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScanReports\\Client\\Pages\\Reports\\FingerPrintScanLogs.razor",
-              "RelativeDocumentMoniker": "FScanReports\\Client\\Pages\\Reports\\FingerPrintScanLogs.razor",
-              "ToolTip": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScanReports\\Client\\Pages\\Reports\\FingerPrintScanLogs.razor",
-              "RelativeToolTip": "FScanReports\\Client\\Pages\\Reports\\FingerPrintScanLogs.razor",
-              "ViewState": "AQIAACcAAAAAAAAAAAAAAC4AAAAmAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-31T06:05:38.601Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "app.css",
-              "DocumentMoniker": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScanReports\\Client\\wwwroot\\css\\app.css",
-              "RelativeDocumentMoniker": "FScanReports\\Client\\wwwroot\\css\\app.css",
-              "ToolTip": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScanReports\\Client\\wwwroot\\css\\app.css",
-              "RelativeToolTip": "FScanReports\\Client\\wwwroot\\css\\app.css",
-              "ViewState": "AQIAAD8AAAAAAAAAAAAAAFwAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-07-31T05:19:47.414Z"
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScanReports\\Server\\Controller\\UserController.cs",
+              "RelativeDocumentMoniker": "FScanReports\\Server\\Controller\\UserController.cs",
+              "ToolTip": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScanReports\\Server\\Controller\\UserController.cs",
+              "RelativeToolTip": "FScanReports\\Server\\Controller\\UserController.cs",
+              "ViewState": "AQIAADkAAAAAAAAAAAAowDMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-07T01:11:04.948Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "AttendanceReport.razor",
-              "DocumentMoniker": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScanReports\\Client\\Pages\\Reports\\AttendanceReport.razor",
-              "RelativeDocumentMoniker": "FScanReports\\Client\\Pages\\Reports\\AttendanceReport.razor",
-              "ToolTip": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScanReports\\Client\\Pages\\Reports\\AttendanceReport.razor",
-              "RelativeToolTip": "FScanReports\\Client\\Pages\\Reports\\AttendanceReport.razor",
-              "ViewState": "AQIAABUAAAAAAAAAAAAAACgAAABuAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-31T06:04:33.148Z"
+              "Title": "ReportsController.cs",
+              "DocumentMoniker": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScanReports\\Server\\Controller\\ReportsController.cs",
+              "RelativeDocumentMoniker": "FScanReports\\Server\\Controller\\ReportsController.cs",
+              "ToolTip": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScanReports\\Server\\Controller\\ReportsController.cs",
+              "RelativeToolTip": "FScanReports\\Server\\Controller\\ReportsController.cs",
+              "ViewState": "AQIAACkAAAAAAAAAAAAgwAwAAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-07T01:10:47.644Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "index.html",
-              "DocumentMoniker": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScanReports\\Client\\wwwroot\\index.html",
-              "RelativeDocumentMoniker": "FScanReports\\Client\\wwwroot\\index.html",
-              "ToolTip": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScanReports\\Client\\wwwroot\\index.html",
-              "RelativeToolTip": "FScanReports\\Client\\wwwroot\\index.html",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABYAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2024-07-31T05:17:52.563Z"
+              "DocumentIndex": 9,
+              "Title": "AuthenticationController.cs",
+              "DocumentMoniker": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScanReports\\Server\\Controller\\AuthenticationController.cs",
+              "RelativeDocumentMoniker": "FScanReports\\Server\\Controller\\AuthenticationController.cs",
+              "ToolTip": "C:\\Users\\jcoroy\\Documents\\GitHub\\FScanReports-Core\\FScan.Reports\\FScanReports\\Server\\Controller\\AuthenticationController.cs",
+              "RelativeToolTip": "FScanReports\\Server\\Controller\\AuthenticationController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-07T01:10:40.784Z"
             }
           ]
         }

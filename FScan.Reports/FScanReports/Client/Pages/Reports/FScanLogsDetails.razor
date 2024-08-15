@@ -73,10 +73,11 @@
 
                     <table class="table table-bordered table-striped table-hover">
                         <thead>
-                            <tr class="text-center">
-                                <th>Date & Time </th>
+                            <tr>
+                                <th>Date & Time</th>
                                 <th>Terminal</th>
                                 <th>Function Key</th>
+                               
                             </tr>
                         </thead>
                         <tbody>
@@ -85,17 +86,18 @@
                                 @foreach (var item in response.GetLogsList)
                                 {
 
-                                    <tr class="text-center">
+                                    <tr>
                                         <td>
-                                            @item.Date
+                                           @item.Date
                                         </td>
                                         <td>
-                                            @item.TerminalName
-                                        </td>
-                                        <td>
-                                            @item.FunctionKey
-                                        </td>
 
+                                           @item.TerminalName
+                                        </td>
+                                        <td>
+
+                                           @item.FunctionKey
+                                        </td>
                                     </tr>
                                 }
                             }

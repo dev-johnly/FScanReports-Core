@@ -37,7 +37,7 @@ namespace FScanReports.Client.Services
             return result!;
         }
 
-        public async Task<Response> FChangePasswordAsync(ChangePasswordVM vm)
+        public async Task<Response> FChangePasswordAsync(FChangePasswordVM vm)
         {
             var response = await _httpClient.PostAsJsonAsync("api/User/FChangePassword/", vm);
             var result = await response.Content.ReadFromJsonAsync<Response>();

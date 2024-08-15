@@ -489,8 +489,8 @@ public class ReportsRepository : IReportsRepository
             float[] headerSize = { 50, 35, 35, 35, 35, 35, 35 };
             PdfPTable content = new PdfPTable(7);
 
-            content = pdf.AddCellToBody(content, headerSize, "Finger Scan - Attendance Report", 7); // colSpan value
-            content = pdf.AddCellToBody(content, headerSize, "Period From " + DateFrom.ToString("MM/dd/yyyy") + " to " + DateTo.ToString("MM/dd/yyyy"), 7);
+            content = pdf.AddContent(content, headerSize, "Finger Scan - Attendance Report", 7); // colSpan value
+            content = pdf.AddContentToCenter(content, headerSize, "Period From " + DateFrom.ToString("MM/dd/yyyy") + " to " + DateTo.ToString("MM/dd/yyyy"), 7);
 
             string name = "";
             string id = "";

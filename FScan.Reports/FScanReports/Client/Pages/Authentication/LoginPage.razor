@@ -69,19 +69,21 @@
         {
             if (response.IsPasswordMustChange)
             {
-                Message = response.Message;
+                toastService.ShowSuccess("Please change your current password.");
                 Navigation.NavigateTo($"/FChangePassword/{response.UserCode}");
             }
             if (response.FirstLogin)
             {
-                Message = response.Message;
+                toastService.ShowSuccess("Please change your current password.");
                 Navigation.NavigateTo($"/FChangePassword/{response.UserCode}");
             }
             if (response.IsAuthenticated)
             {
-                Message = response.Message;
+
                 var customAuthStateProvider = (CustomAuthenticationStateProvider)AuthStateProvider;
                 await customAuthStateProvider.UpdateAuthenticationState(response.Token);
+                toastService.ShowSuccess(response.Message);
+                await Task.Delay(2000);
                 Navigation.NavigateTo("/", forceLoad: true);
             }
             if (response.NoEmail)
@@ -96,7 +98,7 @@
         }
     }
 
-    public async Task ForgotPasswordAsync()
+    public void ForgotPasswordAsync()
     {
         Navigation.NavigateTo("/ForgotPassword");
     }

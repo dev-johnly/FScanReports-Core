@@ -73,7 +73,7 @@ namespace FScan.Reports.Infrastructure.Repositories
             return response;
         }
 
-        public async Task<Response> FChangePasswordAsync(ChangePasswordVM vm)
+        public async Task<Response> FChangePasswordAsync(FChangePasswordVM vm)
         {
             Response response = new();
 
@@ -92,6 +92,7 @@ namespace FScan.Reports.Infrastructure.Repositories
                 }
                 else
                 {
+                    user.MustChangePW = false;
                     user.FSPassword = Encryptor.Encrypt(vm.NewPassword);
                     await _context.SaveChangesAsync();
 
@@ -113,7 +114,7 @@ namespace FScan.Reports.Infrastructure.Repositories
         {
             string defaultPass = GenerateRandomPassword();
 
-            //send email
+            
 
             var user = await _context.NGAC_USERINFO.Where(s => s.ID == usercode).FirstOrDefaultAsync();
 
@@ -127,19 +128,35 @@ namespace FScan.Reports.Infrastructure.Repositories
 
             MailDTO mail = new();
 
-            //mail.Body = string.Format("Your new password is: {0}, you will change your password upon login.", defaultPass);
-            mail.Body = string.Format("<div style='font-family: Default Sans Serif;'>Hi <b>" + user.Name + "</b>"
-                           + "<br><br>" +
-                           "Your new Password is: <b style='color: green;'>{0}</b>, you will change your password upon login." +
-                           "<br><br>" +
-                           "Thank you,</div>", defaultPass);
+
+            //mail.Body = string.Format("<div style='font-family: Default Sans Serif;'>Hi <b>" + user.Name + "</b>"
+            //               + "<br><br>" +
+            //               "Your new Password is: <b style='color: green;'>{0}</b>, you will change your password upon login." +
+            //               "<br><br>" +
+            //               "Thank you,</div>", defaultPass);
+
+            mail.Body = $@"
+        <div style='font-family: Arial, sans-serif;'>
+            <p>Hi <b>{user.Name}</b>,</p>
+            <p>
+                Your new password is: 
+                <b style='color: green;'>{defaultPass}</b>. You will be required to change your password upon login.
+            </p>
+            <p>Thank you,</p>
+            <p style='margin-top: 20px;'>
+                <b>FScan Team</b>
+            </p>
+        </div>";
+
             mail.MailFrom = Settings.Config.MAIL_FROM;
             mail.MailTo = email;
             mail.Subject = "FScan Password Reset";
             EmailUtil util = new EmailUtil();
             util.SendMail(mail);
-            //email
+           
         }
+
+
 
         public static string GenerateRandomPassword(PasswordOptions opts = null)
         {
@@ -232,81 +249,6 @@ namespace FScan.Reports.Infrastructure.Repositories
                               }).FirstOrDefaultAsync();
             return data;
         }
-
-        //        public async Task<Response> ResetPasswordAsync(PasswordResetRequest request)
-        //        {
-        //            Response response = new();
-        //            string defaultPassword = "kY5rpCilcn1p/pIHxKBPIO1pQdJciMKu+6KwIFQcznM=";
-        //            var userToUpdate = await _context.NGAC_USERINFO.FirstOrDefaultAsync(s => s.ID == request.ID);
-
-        //            try
-        //            {
-        //                var app = new NGAC_USERINFO();
-        //                userToUpdate.FSPassword = defaultPassword;
-        //                userToUpdate.BankcomEmail = request.BankcomEmail;
-        //                userToUpdate.MustChangePW = true;
-
-        //                await _context.SaveChangesAsync();
-
-        //                //SEND NEW CREATED LOGS APPLICATION
-        //                EmailUtil throwemail = new EmailUtil();
-
-        //                var set = new MailDTO();
-        //                set.MailFrom = Config.MAIL_FROM;
-        //                set.MailTo = userToUpdate.BankcomEmail;
-
-        //                set.Subject = "Finger Scan Reset Password";
-        //                string? name = userToUpdate.Name;
-        //                string emailBody = $@"<!DOCTYPE html>
-        //<html>
-        //<head>
-        //    <style>
-        //        body {{
-        //            font-family: Arial, sans-serif;
-        //        }}
-        //        .content {{
-        //            padding: 20px;
-        //        }}
-        //        .password {{
-        //            color: green;
-        //            font-weight: bold;
-        //        }}
-        //    </style>
-        //</head>
-        //<body>
-        //    <div class='content'>
-        //        Hi <b>{name}</b>,
-        //        <br><br> 
-        //        Please be informed that your request for Reset Password has been successfully done.
-        //        <br><br>
-        //        Kindly use this default password: <span class='password'>Defaul32#$%!</span>
-        //        <br><br>
-        //        Thank you,
-        //    </div>
-        //</body>
-        //</html>";
-
-        //                set.Body = emailBody;
-
-        //                //set.Body = string.Format("<div style='font-family: Default Sans Serif;'>Hi <b>" + userToUpdate.Name + "</b>"
-        //                //        + "<br><br> Please be inform that your request for Reset Password has been successfully done.<br><br>" +
-        //                //        "Kindly use this default password: <b style='color: green;'>Defaul32#$%!</b>" +
-        //                //        "<br><br>" +
-        //                //        "Thank you,</div>");
-
-        //                throwemail.SendMail(set);
-
-        //                response.Flag = true;
-        //                response.Message = "Finger scan reset password successfully sent.";
-        //                return response;
-        //            }
-        //            catch (Exception ex)
-        //            {
-        //                response.Flag = false; 
-        //                response.Message = ex.Message;
-        //                return response;
-        //            }
-        //        }
 
         public async Task<Response> ResetPasswordAsync(PasswordResetRequest request)
         {

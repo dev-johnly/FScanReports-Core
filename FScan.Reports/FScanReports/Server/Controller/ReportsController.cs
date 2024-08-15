@@ -3,6 +3,7 @@ using FScan.Reports.Application.Models.DTOs;
 using FScan.Reports.Application.Models.Requests;
 using FScan.Reports.Application.Models.Responses;
 using FScan.Reports.Application.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Http;
 
@@ -10,6 +11,7 @@ namespace FScanReports.Server.Controller;
 
 [Route("api/[controller]")]
 [ApiController]
+[Authorize]
 public class ReportsController : ControllerBase
 {
     private readonly IReportsRepository _reports;

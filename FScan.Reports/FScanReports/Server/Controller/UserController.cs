@@ -2,6 +2,7 @@
 using FScan.Reports.Application.Models.Requests;
 using FScan.Reports.Application.Models.ViewModels;
 using FScanReports.Client;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
@@ -10,6 +11,7 @@ namespace FScanReports.Server.Controller
 {
     [Route("api/[controller]")]
     [ApiController]
+   
     public class UserController : ControllerBase
     {
         private readonly IUserRepository _user;
@@ -20,6 +22,7 @@ namespace FScanReports.Server.Controller
 
         }
 
+        [Authorize]
         [HttpPost("ChangePassword")]
         public async Task<IActionResult> ChangePasswordAsync([FromBody] ChangePasswordVM vm)
         {
@@ -28,6 +31,7 @@ namespace FScanReports.Server.Controller
 
         }
 
+        [Authorize]
         [HttpGet("ResetPasswordDetails/{ID}")]
         public async Task<IActionResult> ResetPasswordDetailsAsync(string ID)
         {
@@ -47,7 +51,7 @@ namespace FScanReports.Server.Controller
 
 
         [HttpPost("FChangePassword")]
-        public async Task<IActionResult> FChangePasswordAsync([FromBody] ChangePasswordVM vm)
+        public async Task<IActionResult> FChangePasswordAsync([FromBody] FChangePasswordVM vm)
         {
             var result = await _user.FChangePasswordAsync(vm);
             return Ok(result);
